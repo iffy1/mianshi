@@ -19,6 +19,13 @@
         </activity>
         <service android:name=".bindser.Beband"/>
         <service android:name=".messenger.MessengerService"/>
+        <service android:name=".intentservice.MyIntentService"/>
+        <activity android:name=".intentservice.MyIntentServiceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".messenger.MessengerActivity">
 
         </activity>
@@ -105,10 +112,7 @@
         <activity android:name="com.iffy.mianshi.popupwindow.PopUpWinActivity"/>
 
         <activity android:name=".hashmapSpareArrau.HashMapSpareArrayActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+
         </activity>
 
 

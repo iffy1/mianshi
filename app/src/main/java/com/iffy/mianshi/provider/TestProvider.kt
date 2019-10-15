@@ -16,6 +16,7 @@ class TestProvider : AppCompatActivity() {
         b.put("a", "a")
         this.contentResolver.insert(Uri.parse(""), b)
 
+
         var handler = Handler(object : Handler.Callback {
             override fun handleMessage(p0: Message): Boolean {
                 return true
@@ -23,6 +24,8 @@ class TestProvider : AppCompatActivity() {
         })
         var ob = MyObserver(handler)
         this.contentResolver.registerContentObserver(Uri.parse(""), true, ob)
+
+
     }
 
 

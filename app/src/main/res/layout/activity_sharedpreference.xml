@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffaa"
+        android:orientation="vertical"
+        android:gravity="center_horizontal|center_vertical">
+    <Button android:id="@+id/btn_async" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="AsyncTask"/>
+
+    <Button android:id="@+id/btn_anko" android:layout_toRightOf="@+id/btn_async" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AnkoAsync"/>
+
+    <Button android:id="@+id/btn_coroutines_co" android:layout_below="@+id/btn_async"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="异步协程GlobalScope"/>
+
+    <Button android:id="@+id/btn_coroutines_sy" android:layout_below="@+id/btn_async"
+            android:layout_toRightOf="@+id/btn_coroutines_co" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="同步协程GlobalScope"/>
+
+    <Button android:id="@+id/btn_open_mainScope" android:layout_below="@+id/btn_coroutines_co"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="打开协程MainScope页面"/>
+
+    <Button android:id="@+id/btn_handler" android:layout_below="@+id/btn_open_mainScope"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="handler异步处理"/>
+
+    <Button android:id="@+id/btn_cb" android:layout_below="@+id/btn_handler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="callback异步处理"/>
+
+    <Button android:id="@+id/btn_rx" android:layout_below="@+id/btn_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="rxjava分解处理"/>
+
+    <Button android:id="@+id/btn_rx_as" android:layout_below="@+id/btn_rx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="rxjava链式处理"/>
+
+
+</RelativeLayout>
