@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".存储.StoreActivity">
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="db"
+            android:id="@+id/store_to_db"/>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="sp"
+            android:id="@+id/store_to_sp"/>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="file"
+            android:id="@+id/store_to_file"/>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="cp"
+            android:id="@+id/store_to_cp"/>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="network"
+            android:id="@+id/store_to_network"/>
+
+</LinearLayout>

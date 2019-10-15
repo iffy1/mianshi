@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffaa">
+
+    <Button android:id="@+id/btn_coroutines_co_main_scope"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:text="异步协程MainScope"/>
+
+
+
+
+</RelativeLayout>

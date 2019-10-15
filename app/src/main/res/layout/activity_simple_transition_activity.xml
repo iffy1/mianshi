@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffaa"
+        android:orientation="vertical"
+        android:gravity="center_horizontal|center_vertical">
+
+
+    <Button android:id="@+id/btn_a" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"/>
+
+    <Button android:id="@+id/btn_b" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:background="@color/colorAccent"/>
+
+    <Button android:id="@+id/btn_c" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"/>
+
+    <Button android:id="@+id/btn_d" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="开始"/>
+
+
+</LinearLayout>

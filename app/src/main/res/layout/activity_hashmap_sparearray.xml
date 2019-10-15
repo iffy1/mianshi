@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffaa"
+        android:orientation="vertical"
+        android:gravity="center_horizontal|center_vertical">
+    <Button android:id="@+id/btn_hash_map" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="HashMap" android:layout_marginTop="85dp" android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" android:layout_marginStart="56dp"/>
+
+    <Button android:id="@+id/btn_sparse_array" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="SparseArray" android:layout_toEndOf="@+id/btn_hash_map" android:layout_marginStart="107dp"
+            android:layout_marginTop="84dp" android:layout_alignParentTop="true" android:layout_alignParentEnd="true"
+            android:layout_marginEnd="46dp"/>
+
+    <TextView android:layout_width="match_parent" android:layout_height="120dp" android:id="@+id/blackboard"
+              android:layout_marginTop="189dp"
+              android:layout_alignParentBottom="true" android:layout_marginBottom="211dp"
+              android:layout_alignParentTop="true"/>
+
+
+</RelativeLayout>
