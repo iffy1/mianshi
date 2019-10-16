@@ -21,10 +21,7 @@
         <service android:name=".messenger.MessengerService"/>
         <service android:name=".intentservice.MyIntentService"/>
         <activity android:name=".intentservice.MyIntentServiceActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+
         </activity>
         <activity android:name=".messenger.MessengerActivity">
 
@@ -113,6 +110,17 @@
 
         <activity android:name=".hashmapSpareArrau.HashMapSpareArrayActivity">
 
+        </activity>
+
+        <activity android:name=".多线程.MultithreadingActivity">
+
+        </activity>
+
+        <activity android:name=".多线程.ProduceCustomerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
 
