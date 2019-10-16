@@ -14,58 +14,112 @@ class ProduceCustomerActivity : AppCompatActivity() {
     private val lock = java.lang.Object()
     lateinit var btnA: Button
     lateinit var btnB: Button
+    lateinit var btnStop:Button
     lateinit var blackBoard: TextView
+    var keepworking = false
     //生产者与消费者互斥使用仓库 仓库最大容量为10
     val Capbility = 10
+    val CustomerCount = 10
+    val ProducerCount = 10
     var store = ArrayList<Int>(Capbility)
+    var total_produce_count = 0
+    var total_consume_count =0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_multithread_producer)
         btnA = findViewById(R.id.button_multithread_A)
         btnA.setOnClickListener {
+            total_produce_count = 0
+            total_consume_count =0
+            keepworking = true
             //生产者线程
-            Thread(Runnable {
-                while (true) {
-                    synchronized(lock) {
-                        //库存大于10的话停止生产
-                        if (store.size >= Capbility) {
-                            lock.notifyAll()// 唤醒等待队列中所有线程
-                            lock.wait()//表示当前线程需要在lock上进行等待
-                        } else {
+            for (i in 0..ProducerCount) {
+                Thread(Runnable {
+                    while (keepworking) {
+                        synchronized(lock) {
+                            //库存大于10的话停止生产
+                            while (store.size == Capbility) {
+                                lock.notifyAll()// 唤醒等待队列中所有线程
+                                lock.wait()//表示当前线程需要在lock上进行等待
+                            }
                             store.add(1)
+                            total_produce_count++
                             Thread.sleep(20)
-                            println("produced 1 product, store has ${store.size} products")
+                            println("produced $i product, store has ${store.size} products")
+
                         }
                     }
-                }
-            }).start()
+                }).start()
+            }
 
             //消费者线程
-            Thread(Runnable {
-                while (true) {
-                    synchronized(lock) {
-                        //库存小于2的时候停止消费
-                        if (store.size <= 2) {
-                            lock.notifyAll()//库存不足唤醒所有等待的线程
-                            lock.wait()//表示当前线程需要在lock上进行等待
-                        } else {
+            for (i in 0..CustomerCount) {
+                Thread(Runnable {
+                    while (keepworking) {
+                        synchronized(lock) {
+                            //库存小于2的时候停止消费
+                            while (store.size == 2) {
+                                lock.notifyAll()//库存不足唤醒所有等待的线程
+                                lock.wait()//表示当前线程需要在lock上进行等待
+                            }
                             store.removeAt(0)
-                            println("costomer consume 1 product, store has ${store.size} products")
+                            total_consume_count++
+                            println("costomer $i consume 1 product, store has ${store.size} products")
                         }
                     }
-                }
-            }).start()
+                }).start()
+            }
         }
 
         btnB = findViewById(R.id.button_multithread_B)
         btnB.setOnClickListener {
-            Thread(Runnable {
-                store.clear()
-            }).start()
+            total_produce_count = 0
+            total_consume_count =0
+            keepworking = true
+            //生产者线程
+            for (i in 0..ProducerCount) {
+                Thread(Runnable {
+                    while (keepworking) {
+                        //库存大于10的话停止生产
+                        while (store.size >= Capbility) {
+                            Thread.sleep(40)
+                        }
+                        store.add(1)
+                        total_produce_count++
+                        Thread.sleep(20)
+                        println("produced $i product, store has ${store.size} products")
+
+
+                    }
+                }).start()
+            }
+
+            //消费者线程
+            for (i in 0..CustomerCount) {
+                Thread(Runnable {
+                    while (keepworking) {
+                        //库存小于2的时候停止消费
+                        while (store.size <= 2) {
+                            Thread.sleep(40)
+                        }
+                        store.removeAt(0)
+                        total_consume_count++
+                        println("costomer $i consume 1 product, store has ${store.size} products")
+                    }
+
+                }).start()
+            }
         }
+
         blackBoard = findViewById(R.id.tv_multithread_blackboard)
         blackBoard.setMovementMethod(ScrollingMovementMethod.getInstance())
+
+        btnStop = findViewById(R.id.button_stop)
+        btnStop.setOnClickListener {
+            keepworking = false
+            blackBoard.text = "一共生产了$total_produce_count 个商品\n一共消费了$total_consume_count 个商品\n 仓库还剩${store.size}个商品"
+        }
     }
 
 
