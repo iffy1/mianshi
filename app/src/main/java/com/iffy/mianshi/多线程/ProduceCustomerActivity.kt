@@ -7,7 +7,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.iffy.mianshi.R
 
-
+//什么是生产者消费者模式
+//生产者消费者模式是通过一个容器来解决生产者和消费者的强耦合问题。
+// 生产者和消费者彼此之间不直接通讯，而通过阻塞队列来进行通讯，所以生产者生产完数据之后不用等待消费者处理，
+// 直接扔给阻塞队列，消费者不找生产者要数据，而是直接从阻塞队列里取，
+// 阻塞队列就相当于一个缓冲区，平衡了生产者和消费者的处理能力。
 class ProduceCustomerActivity : AppCompatActivity() {
     //Kotlin故意没有构建语言的并发性。我们认为这应该由libraries来处理。
     //但是你仍然能够使用java.lang.Object的实例作为lock，并且调用相关的方法。
@@ -45,8 +49,8 @@ class ProduceCustomerActivity : AppCompatActivity() {
                             }
                             store.add(1)
                             total_produce_count++
-                            Thread.sleep(20)
-                            println("produced $i product, store has ${store.size} products")
+                            //Thread.sleep(20)
+                            println("Producer $i produce, store has ${store.size} products")
 
                         }
                     }
@@ -58,8 +62,8 @@ class ProduceCustomerActivity : AppCompatActivity() {
                 Thread(Runnable {
                     while (keepworking) {
                         synchronized(lock) {
-                            //库存小于2的时候停止消费
-                            while (store.size == 2) {
+                            //库存小于1的时候停止消费
+                            while (store.size <= 1) {
                                 lock.notifyAll()//库存不足唤醒所有等待的线程
                                 lock.wait()//表示当前线程需要在lock上进行等待
                             }
@@ -88,7 +92,7 @@ class ProduceCustomerActivity : AppCompatActivity() {
                         store.add(1)
                         total_produce_count++
                         Thread.sleep(20)
-                        println("produced $i product, store has ${store.size} products")
+                        println("producer $i , store has ${store.size} products")
 
 
                     }
@@ -99,8 +103,8 @@ class ProduceCustomerActivity : AppCompatActivity() {
             for (i in 0..CustomerCount) {
                 Thread(Runnable {
                     while (keepworking) {
-                        //库存小于2的时候停止消费
-                        while (store.size <= 2) {
+                        //库存小于1的时候停止消费
+                        while (store.size <= 1) {
                             Thread.sleep(40)
                         }
                         store.removeAt(0)
@@ -120,6 +124,7 @@ class ProduceCustomerActivity : AppCompatActivity() {
             keepworking = false
             blackBoard.text = "一共生产了$total_produce_count 个商品\n一共消费了$total_consume_count 个商品\n 仓库还剩${store.size}个商品"
         }
+
     }
 
 

@@ -105,6 +105,16 @@
         </activity>
         <activity android:name=".async.RxjavaActivity"/>
 
+        <activity android:name=".async.HandlerActivity">
+        </activity>
+
+        <activity android:name=".async.HandlerThreadActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
         <!--popupwindow-->
         <activity android:name="com.iffy.mianshi.popupwindow.PopUpWinActivity"/>
 
@@ -117,11 +127,10 @@
         </activity>
 
         <activity android:name=".多线程.ProduceCustomerActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+
         </activity>
+
+
 
 
     </application>

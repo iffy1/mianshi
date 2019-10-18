@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffaa"
+        android:gravity="center_horizontal|center_vertical"
+>
+    <TextView android:id="@+id/tv_handler_blackboard" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:scrollbars="vertical"
+              android:singleLine="false"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:layout_marginTop="80dp"
+                  android:orientation="vertical">
+        <Button android:id="@+id/btn_handler_thread" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Handler Thread"/>
+
+        <Button android:id="@+id/btn_handler_new_subThread" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Handler 自己创建thread"/>
+
+        <Button android:id="@+id/btn_handler_thread_stop" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="停止跳动"/>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

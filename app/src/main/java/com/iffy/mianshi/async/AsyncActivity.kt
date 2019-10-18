@@ -27,7 +27,7 @@ import io.reactivex.ObservableOnSubscribe
 //异步方法 AsyncTask
 //Anko async
 //协程 Coroutine 20191011
-//handler Thread 20191011
+//mainHandler Thread 20191011
 //CallBack 20191011
 //RxJava
 
@@ -164,7 +164,7 @@ class AsyncActivity : AppCompatActivity(), MyCallBack {
         }
 
 
-        //handler Thread
+        //mainHandler Thread
         val handler = Handler {
             btnHandler.text = "${it.arg1}"
             true

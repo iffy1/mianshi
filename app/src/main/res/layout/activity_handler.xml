@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffaa"
+        android:gravity="center_horizontal|center_vertical"
+>
+    <TextView android:id="@+id/tv_handler_blackboard" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:scrollbars="vertical"
+              android:singleLine="false"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_marginTop="80dp" android:layout_height="match_parent"
+                  android:orientation="vertical">
+        <Button android:id="@+id/btn_handler_post" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Handler post 马上做 "/>
+
+        <Button android:id="@+id/btn_handler_postdelay" android:layout_width="wrap_content"
+                                                                       android:layout_height="wrap_content"
+                                                                       android:text="Handler postdely 5秒后做 "/>
+
+        <Button android:id="@+id/btn_handler_in_sub_thread" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="子线程中调用主线程Handler sendmsg "/>
+
+        <Button android:id="@+id/btn_new_handler_in_sub_thread" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="子线程中创建hanlder并且调用(不能调用主线程)"/>
+
+        <Button android:id="@+id/btn_new_handler_in_sub_thread_run_in_main" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="子线程中创建hanlder并且在主线程调用"/>
+
+        <Button android:id="@+id/btn_run_on_ui_thread" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="使用runOnUiThread(activity 内置 handler)"/>
+
+        <Button android:id="@+id/btn_handler_qunn" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="handler队列"/>
+    </LinearLayout>
+
+
+</FrameLayout>
