@@ -1,46 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="com.iffy.mianshi">
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.iffy.mianshi">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
+            android:name=".application.MyApplication"
             android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
+            android:theme="@style/AppTheme"
+            tools:ignore="GoogleAppIndexingWarning">
 
         <activity android:name=".activity与fragment通信.MainActivity">
 
         </activity>
-        <service android:name=".bindser.Beband"/>
-        <service android:name=".messenger.MessengerService"/>
-        <service android:name=".intentservice.MyIntentService"/>
+        <activity android:name=".application.ActivityApplicationA">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".application.ActivityApplicationB"></activity>
+
+        <service android:name=".bindser.Beband" />
+        <service android:name=".messenger.MessengerService" />
+        <service android:name=".intentservice.MyIntentService" />
+
         <activity android:name=".intentservice.MyIntentServiceActivity">
 
         </activity>
         <activity android:name=".messenger.MessengerActivity">
 
         </activity>
-        <activity android:name=".broadcast.BroadcastActivity">
-        </activity>
-        <activity android:name=".alertpopupdialog.PopupDialog">
-        </activity>
+        <activity android:name=".broadcast.BroadcastActivity"></activity>
+        <activity android:name=".alertpopupdialog.PopupDialog"></activity>
         <!--动画-->
-        <activity android:name=".animator.ValueAnimatorActivity">
-        </activity>
+        <activity android:name=".animator.ValueAnimatorActivity"></activity>
 
-        <activity android:name=".animator.PropertyAnimatorActivity">
-        </activity>
-        <activity android:name=".animator.transition.SimpleTransitionDemoActivity">
-        </activity>
+        <activity android:name=".animator.PropertyAnimatorActivity"></activity>
+        <activity android:name=".animator.transition.SimpleTransitionDemoActivity"></activity>
 
-        <activity android:name=".animator.sceneTransition.Aactivity">
-        </activity>
+        <activity android:name=".animator.sceneTransition.Aactivity"></activity>
         <activity android:name=".animator.sceneTransition.Bactivity">
 
         </activity>
@@ -50,13 +57,11 @@
         </activity>
 
         <!--Surface view-->
-        <activity android:name=".surfaceView.SurfaceActivity">
-        </activity>
+        <activity android:name=".surfaceView.SurfaceActivity"></activity>
 
         <!--ListActivity-->
 
-        <activity android:name=".list.ListActivity">
-        </activity>
+        <activity android:name=".list.ListActivity"></activity>
 
         <!--RecyclerActivity-->
         <activity android:name=".recyclerView.RecyclerActivity">
@@ -64,15 +69,12 @@
         </activity>
 
         <!--RecyclerInRecyclerActivity-->
-        <activity android:name=".recyclerView.RecyclerInRecyclerActivity">
-        </activity>
+        <activity android:name=".recyclerView.RecyclerInRecyclerActivity"></activity>
 
         <!--序列化-->
-        <activity android:name=".序列化.ActivityA">
-        </activity>
+        <activity android:name=".序列化.ActivityA"></activity>
 
-        <activity android:name=".序列化.ActivityB">
-        </activity>
+        <activity android:name=".序列化.ActivityB"></activity>
 
         <!--差值器-->
         <activity android:name=".animator.差值器.差值器Activity">
@@ -80,43 +82,33 @@
         </activity>
 
         <!--存储-->
-        <activity android:name=".存储.StoreActivity">
-        </activity>
+        <activity android:name=".存储.StoreActivity"></activity>
 
         <!--View机制-->
-        <activity android:name=".view刷新机制.ViewActivity">
-        </activity>
+        <activity android:name=".view刷新机制.ViewActivity"></activity>
 
         <!--Network类-->
-        <activity android:name=".network.NetWorkActivity">
-        </activity>
+        <activity android:name=".network.NetWorkActivity"></activity>
 
         <!--View优化-->
         <activity android:name=".view优化.ViewOptActivity">
 
         </activity>
 
-        <activity android:name=".view事件分发.ViewClickActivity">
-        </activity>
+        <activity android:name=".view事件分发.ViewClickActivity"></activity>
         <!-- Aysnc task-->
-        <activity android:name=".async.AsyncActivity">
-        </activity>
-        <activity android:name=".async.CoroutineMainScopeActivity">
-        </activity>
-        <activity android:name=".async.RxjavaActivity"/>
+        <activity android:name=".async.AsyncActivity"></activity>
+        <activity android:name=".async.CoroutineMainScopeActivity"></activity>
+        <activity android:name=".async.RxjavaActivity" />
 
-        <activity android:name=".async.HandlerActivity">
-        </activity>
+        <activity android:name=".async.HandlerActivity"></activity>
 
         <activity android:name=".async.HandlerThreadActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+
         </activity>
 
         <!--popupwindow-->
-        <activity android:name="com.iffy.mianshi.popupwindow.PopUpWinActivity"/>
+        <activity android:name="com.iffy.mianshi.popupwindow.PopUpWinActivity" />
 
         <activity android:name=".hashmapSpareArrau.HashMapSpareArrayActivity">
 
@@ -129,8 +121,6 @@
         <activity android:name=".多线程.ProduceCustomerActivity">
 
         </activity>
-
-
 
 
     </application>
