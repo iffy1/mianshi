@@ -22,10 +22,7 @@
 
         </activity>
         <activity android:name=".application.ActivityApplicationA">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".application.ActivityApplicationB"></activity>
 
@@ -65,8 +62,15 @@
 
         <!--RecyclerActivity-->
         <activity android:name=".recyclerView.RecyclerActivity">
-
         </activity>
+        <activity android:name=".recyclerView.animation.RecyclerAnimationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
 
         <!--RecyclerInRecyclerActivity-->
         <activity android:name=".recyclerView.RecyclerInRecyclerActivity"></activity>

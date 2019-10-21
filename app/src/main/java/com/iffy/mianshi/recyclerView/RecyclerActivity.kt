@@ -30,6 +30,7 @@ class RecyclerActivity : AppCompatActivity() {
         //外围装饰
         recyclerViewA.addItemDecoration(MyItemDecoration())
 
+
         //水平列表
         var recyclerViewB = findViewById<RecyclerView>(R.id.recyclerViewB)
         var lmb = LinearLayoutManager(this)
