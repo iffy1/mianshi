@@ -37,7 +37,10 @@ class RecyclerAnimationActivity : AppCompatActivity() {
             data.removeAt(0)
             adapter.notifyItemRemoved(0)
         }
-        recyclerViewA.setItemAnimator(MyDefaultItemAnimator())
+        var itemAni = MyDefaultItemAnimator()
+        itemAni.addDuration = 1000
+        itemAni.removeDuration = 1000
+        recyclerViewA.setItemAnimator(itemAni)
 
     }
 }
