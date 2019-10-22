@@ -64,10 +64,7 @@
         <activity android:name=".recyclerView.RecyclerActivity">
         </activity>
         <activity android:name=".recyclerView.animation.RecyclerAnimationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
 
@@ -95,9 +92,16 @@
         <activity android:name=".network.NetWorkActivity"></activity>
 
         <!--View优化-->
-        <activity android:name=".view优化.ViewOptActivity">
+        <activity android:name=".view优化.ViewOptActivity"/>
 
+        <!--自定义View-->
+        <activity android:name=".viewCustomize.CustomizeViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
 
         <activity android:name=".view事件分发.ViewClickActivity"></activity>
         <!-- Aysnc task-->
