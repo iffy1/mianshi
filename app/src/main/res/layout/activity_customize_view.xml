@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/layout_root_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#23C78D"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="vertical">
-
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/layout_root_view"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#23C78D"
+              android:gravity="center_horizontal|center_vertical"
+              android:orientation="vertical">
+    <!--app:stroke_width="8dp"是自定义的属性-->
+    <!--属性缺省值应该在demens.xml文件中定义，不能只是传递一个数值。否则会导致在不同分辨率的手机上显示大小不一致-->
     <com.iffy.mianshi.viewCustomize.MyView
             android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="#ff4433"
-            android:layout_height="50dp" />
+            app:stroke_width="80px"/>
 
 
 </LinearLayout>

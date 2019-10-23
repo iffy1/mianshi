@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义View(MyView)的属性-->
+    <declare-styleable name="MyView">
+        <attr name="stroke_width" format="dimension"/>
+    </declare-styleable>
+</resources>
