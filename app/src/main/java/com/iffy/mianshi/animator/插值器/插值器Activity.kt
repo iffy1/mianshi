@@ -1,15 +1,13 @@
-package com.iffy.mianshi.animator.差值器
+package com.iffy.mianshi.animator.插值器
 
 import android.animation.ObjectAnimator
 import android.graphics.Point
 import android.os.Bundle
-import android.view.animation.Animation
-import android.view.animation.TranslateAnimation
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.iffy.mianshi.R
 
-class 差值器Activity : AppCompatActivity() {
+class 插值器Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chazhiqi)

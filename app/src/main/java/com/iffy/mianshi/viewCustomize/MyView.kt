@@ -3,13 +3,20 @@ package com.iffy.mianshi.viewCustomize
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
 import com.iffy.mianshi.R
 
 class MyView : View {
-    var width_cus = 0f
-    var mContext:Context
+
+    var mContext: Context
+    var mBound = Rect()
+    var mPaint = Paint()
+    var text = "haha"
+    //自定义属性
+    var mTextClor = 0
+    var mTextSize = 0f
 
     //当我们在代码中使用new 对象的方式创建一个自定View的时候，只能使用一个参数的构造函数。
     constructor(context: Context) : this(context, null) {
@@ -20,11 +27,17 @@ class MyView : View {
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0) {
         println("我是第二个构造函数")
         var sa = context.obtainStyledAttributes(attrs, R.styleable.MyView)
-        width_cus = sa.getDimension(R.styleable.MyView_stroke_width, -0f)
-        println("x is $x | width_cus is $width_cus")
+        //获取attr.xml里面的自定义属性
+        mTextSize = sa.getDimension(R.styleable.MyView_my_text_size, -0f)
+        mTextClor = sa.getColor(
+            R.styleable.MyView_my_text_color,
+            mContext.resources.getColor(R.color.notification_icon_bg_color, null)
+        )
+
 
         //TypedArray使用完一定要回收，否则会造成内存泄漏。
         sa.recycle()
+
     }
 
     //无论是在代码中new一个CustomView实例，还是在布局文件中使用，
@@ -38,6 +51,14 @@ class MyView : View {
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         println("MyView onMeasure widthMeasureSpec: $widthMeasureSpec")
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        initPaint()
+    }
+
+    private fun initPaint() {
+        mPaint.style = Paint.Style.FILL
+        mPaint.textSize = mTextSize
+        mPaint.color = mTextClor
+
     }
 
     //在onDraw中进行View的绘制。
@@ -45,9 +66,14 @@ class MyView : View {
     // 新建对象会触发垃圾回收导致内存抖动影响性能。耗时操作会导致在一个绘制周期内无法完成所有的绘制工作从而出现丢帧问题。
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        var pen = Paint()
-        pen.setColor(mContext.resources.getColor(R.color.notification_icon_bg_color,null))
-        canvas?.drawText("haha",x+width_cus,y+10,pen)
+        //通过mBound获取文子高度
+        mPaint.getTextBounds(text, 0, text.length, mBound)
+        canvas?.drawText(
+            "haha",
+            getWidth() / 2 - mBound.width() / 2.0f,
+            getHeight()/ 2.0f,
+            mPaint
+        )
     }
 
     //在onLayout方法中对一些数据进行处理。

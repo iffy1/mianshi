@@ -1,4 +1,4 @@
-package com.iffy.mianshi.animator.差值器
+package com.iffy.mianshi.animator.插值器
 
 import android.util.Log
 import android.view.animation.Interpolator

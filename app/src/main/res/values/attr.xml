@@ -2,6 +2,21 @@
 <resources>
     <!--自定义View(MyView)的属性-->
     <declare-styleable name="MyView">
-        <attr name="stroke_width" format="dimension"/>
+        <attr name="my_text_color" format="color"/>
+        <attr name="my_text_size" format="dimension"/>
     </declare-styleable>
+
+    <!--自定义View(CircleProgress)的属性-->
+    <declare-styleable name="CircleProgress">
+        <attr name="foreground_color" format="color"/>
+        <attr name="background_color" format="color"/>
+        <attr name="text_color" format="color"/>
+        <attr name="stroke_width" format="dimension"/>
+        <attr name="enum_attr" format="enum">
+            <enum name="attr_1" value="0"/>
+            <enum name="attr_2" value="1"/>
+        </attr>
+    </declare-styleable>
+
+
 </resources>

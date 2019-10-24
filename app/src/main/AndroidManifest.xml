@@ -78,7 +78,7 @@
         <activity android:name=".序列化.ActivityB"></activity>
 
         <!--差值器-->
-        <activity android:name=".animator.差值器.差值器Activity">
+        <activity android:name=".animator.插值器.插值器Activity">
 
         </activity>
 
