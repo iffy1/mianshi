@@ -26,7 +26,7 @@
         </activity>
         <activity android:name=".application.ActivityApplicationB"></activity>
 
-        <service android:name=".bindser.Beband" />
+        <service android:name=".bindService.Beband" />
         <service android:name=".messenger.MessengerService" />
         <service android:name=".intentservice.MyIntentService" />
 
@@ -96,10 +96,7 @@
 
         <!--自定义View-->
         <activity android:name=".viewCustomize.CustomizeViewActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
 
@@ -113,6 +110,14 @@
 
         <activity android:name=".async.HandlerThreadActivity">
 
+        </activity>
+
+
+        <activity android:name=".async.HandlerBetweenMainAndSubActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!--popupwindow-->

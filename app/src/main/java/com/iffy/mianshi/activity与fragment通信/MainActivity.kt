@@ -1,6 +1,5 @@
 package com.iffy.mianshi.activity与fragment通信
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.content.ComponentName
 import android.content.Intent
@@ -9,20 +8,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import com.iffy.mianshi.R
-import android.content.Context.BIND_AUTO_CREATE
 
 import android.content.Context
 import android.content.ServiceConnection
 import android.os.IBinder
-import android.os.Messenger
-import android.view.View
-import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.iffy.mianshi.bindser.Beband
+import com.iffy.mianshi.bindService.Beband
 import com.iffy.remoteservice.IIFFYAidlInterface
 
 

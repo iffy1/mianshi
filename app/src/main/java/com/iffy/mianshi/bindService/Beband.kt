@@ -1,13 +1,11 @@
-package com.iffy.mianshi.bindser
+package com.iffy.mianshi.bindService
 
 import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
-
+//MainActivity bind 这个Service
 class Beband : Service() {
     var binder = MyBinder()
 
