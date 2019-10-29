@@ -100,7 +100,13 @@
         </activity>
 
 
-        <activity android:name=".view事件分发.ViewClickActivity"></activity>
+        <activity android:name=".view事件分发.ViewClickActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <!-- Aysnc task-->
         <activity android:name=".async.AsyncActivity"></activity>
         <activity android:name=".async.CoroutineMainScopeActivity"></activity>
@@ -114,10 +120,7 @@
 
 
         <activity android:name=".async.HandlerBetweenMainAndSubActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <!--popupwindow-->
