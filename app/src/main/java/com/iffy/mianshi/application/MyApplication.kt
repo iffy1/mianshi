@@ -1,7 +1,14 @@
 package com.iffy.mianshi.application
 
 import android.app.Application
+import android.content.Context
 import android.util.SparseArray
+import com.squareup.leakcanary.LeakCanary
+import com.squareup.leakcanary.RefWatcher
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 //Application对象的生命周期是整个程序中最长的，它的生命周期就等于这个程序的生命周期。
 // 因为它是全局的单例的，所以在不同的Activity,Service中获得的Application对象都是同一个对象。
@@ -28,15 +35,47 @@ class MyApplication : Application() {
     //2、Application数据缓存
     var catcheData = SparseArray<Student>()
 
+    //LeakCanary用来监测引用泄漏的
+    private lateinit var refWatcher: RefWatcher
     companion object {
         val STUDENT_EXTRA = "student"
+
+        //LeakCanary leak检测工具 MyApplication中还要提供getRefWatcher静态方法来返回全局RefWatcher
+        fun getRefWatcher(c:Context): RefWatcher {
+            println("Application getRefWatcher")
+            var app = c.applicationContext as MyApplication
+            return app.refWatcher
+        }
     }
 
+
     //程序创建的时候执行
+    //每个进程创建，都会调用Application的onCreate方法，这是一个需要注意的地方，
+    // 我们也可以根据当前进程的pid，拿到当前进程的名字去做判断，然后做一些我们需要的逻辑，
+    // 我们这个例子，拿到的两个进程名分别是
+    //多进程app可以在系统中申请多份内存，但应合理使用，建议把一些高消耗但不常用的模块放到独立的进程，不使用的进程可及时手动关闭；
+    //com.iffy.mianshi I/System.out: Application onCreate
+    //com.iffy.mianshi I/System.out: 点击按钮开始绑定
+    //com.iffy.mianshi:remote I/System.out: Application onCreate(MessageIPCService android:process=":remote" )
+    //多进程app可以在系统中申请多份内存，但应合理使用，建议把一些高消耗但不常用的模块放到独立的进程，不使用的进程可及时手动关闭；
+    //多进程应用，Application将会被创建多次；
     override fun onCreate() {
         super.onCreate()
         println("Application onCreate")
+
+        //LeakCanary leak检测工具
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            //return
+            refWatcher = RefWatcher.DISABLED
+        }
+            //LeakCanary.install(this)
+        refWatcher = LeakCanary.install(this)
+        //println("Application onCreate $refWatcher")
+        //LeakCanary leak检测工具
     }
+
+
+
 
     //当终止应用程序对象时调用，不保证一定被调用，
     override fun onTerminate() {

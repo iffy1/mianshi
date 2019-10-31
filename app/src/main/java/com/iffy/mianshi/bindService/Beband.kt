@@ -17,7 +17,8 @@ class Beband : Service() {
     fun guess(): String {
         return "I am your big father"
     }
-
+    //inner为内部类声明，可以访问外部类环境变量
+    //如果没有inner的话，这个类默认为嵌套类（java中叫静态类）
     inner class MyBinder : Binder() {
         fun getService():Beband{
          return this@Beband

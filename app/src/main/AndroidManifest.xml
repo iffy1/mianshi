@@ -8,6 +8,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!--使用权限 来获得访问MessageIPCService的权限-->
+    <uses-permission android:name="com.iffy.mianshi.multiProcess.permission.REMOTE_SERVICE_PERMISSION" />
+
+    <!--MessageIPCService声明权限，只有Use这个权限的app才能绑定我-->
+    <permission
+            android:name="com.iffy.mianshi.multiProcess.permission.REMOTE_SERVICE_PERMISSION"
+            android:protectionLevel="normal" />
+
     <application
             android:name=".application.MyApplication"
             android:allowBackup="false"
@@ -29,10 +37,34 @@
         <service android:name=".bindService.Beband" />
         <service android:name=".messenger.MessengerService" />
         <service android:name=".intentservice.MyIntentService" />
+        <!--对于webview，图库等，由于存在内存系统泄露或者占用内存过多的问题，
+        我们可以采用单独的进程。微信当前也会把它们放在单独的tools进程中
+        开启多进程的方法很简单，只需要给四大组件指定android:process标签。-->
+        <service
+                android:name=".multiProcess.MessageIPCService"
+                android:enabled="true"
+                android:exported="true"
+                android:process=":remote" />
+
+        <activity android:name=".multiProcess.IPCActivity">
+
+        </activity>
+
+        <activity android:name=".oom.OomActivity">
+
+        </activity>
+        <activity android:name=".oom.LeakTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
 
         <activity android:name=".intentservice.MyIntentServiceActivity">
 
         </activity>
+
         <activity android:name=".messenger.MessengerActivity">
 
         </activity>
@@ -61,12 +93,10 @@
         <activity android:name=".list.ListActivity"></activity>
 
         <!--RecyclerActivity-->
-        <activity android:name=".recyclerView.RecyclerActivity">
-        </activity>
+        <activity android:name=".recyclerView.RecyclerActivity"></activity>
         <activity android:name=".recyclerView.animation.RecyclerAnimationActivity">
 
         </activity>
-
 
 
         <!--RecyclerInRecyclerActivity-->
@@ -92,23 +122,27 @@
         <activity android:name=".network.NetWorkActivity"></activity>
 
         <!--View优化-->
-        <activity android:name=".view优化.ViewOptActivity"/>
+        <activity android:name=".view优化.ViewOptActivity" />
 
         <!--自定义View-->
         <activity android:name=".viewCustomize.CustomizeViewActivity">
 
         </activity>
 
+        <activity android:name=".firebase.MyFireBase">
+
+
+        </activity>
+
 
         <activity android:name=".view事件分发.ViewClickActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
         </activity>
         <!-- Aysnc task-->
-        <activity android:name=".async.AsyncActivity"></activity>
+        <activity android:name=".async.AsyncActivity">
+
+        </activity>
         <activity android:name=".async.CoroutineMainScopeActivity"></activity>
         <activity android:name=".async.RxjavaActivity" />
 
@@ -126,7 +160,7 @@
         <!--popupwindow-->
         <activity android:name="com.iffy.mianshi.popupwindow.PopUpWinActivity" />
 
-        <activity android:name=".hashmapSpareArrau.HashMapSpareArrayActivity">
+        <activity android:name=".hashmapSpareArray.HashMapSpareArrayActivity">
 
         </activity>
 
