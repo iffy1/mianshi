@@ -1,1 +1,1 @@
-include ':app', ':remoteservice',':vlayoutexamples'
+include ':app', ':remoteservice',':vlayoutexamples', ':providervisitor'

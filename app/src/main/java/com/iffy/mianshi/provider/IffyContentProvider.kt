@@ -1,10 +1,13 @@
 package com.iffy.mianshi.provider
 
 import android.content.ContentProvider
+import android.content.ContentUris
 import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
+import android.database.MatrixCursor
 import android.net.Uri
+
 
 //（应用于<provider>标记）限制谁可以访问ContentProvider中的数据。
 // （内容提供程序有重要的附加安全工具可用，称为 URI 权限，将在后面介绍。）
@@ -16,42 +19,79 @@ import android.net.Uri
 // 在所有这些情况下，没有所需的权限将导致调用抛出 SecurityException。
 //android:grantUriPermissions 临时权限标识，true时，意味着该provider下所有数据均可被临时使用；
 // false时，则反之，但可以通过设置标签来指定哪些路径可以被临时使用。
-class IffyContentProvider:ContentProvider() {
+class IffyContentProvider : ContentProvider() {
 
-    private val INSERTNUMBER = 100
-    private val INSERTADDRESS = 200
+
+    private val PERSON = 1 // 操作单行记录
+    private val PERSON_ID = 2 // 操作多行记录
+
+    companion object {
+        val PERSON_AUTHORITY = "com.iffy.mianshi.provider.PersonContentProvider"
+    }
+
+    var URI_MATCHER = UriMatcher(UriMatcher.NO_MATCH)
+
+    // 而对于ContentProvider而言，Uri也是有固定格式的：<srandard_prefix>://<authority>/<path>/<id>
     //Authority：授权信息，用以区别不同的ContentProvider；
     //Path：表名，用以区分ContentProvider中不同的数据表；
     //Id：Id号，用以区别表中的不同数据；
 
     //我们根据path的不同，来区别对不同的数据库表进行操作
+    //在Android中，Uri是一种比较常见的资源访问方式。
+
     //matcher.addURI(ContactsContract.AUTHORITY, "contacts", CONTACTS);
     //matcher.addURI(ContactsContract.AUTHORITY, "contacts/#", CONTACTS_ID);
     //matcher.addURI(ContactsContract.AUTHORITY, "contacts/#/data", CONTACTS_ID_DATA);
     //matcher.addURI(ContactsContract.AUTHORITY, "data/phones/#", PHONES_ID);
-    fun buildURImatcher():UriMatcher{
-        var matcher =UriMatcher(UriMatcher.NO_MATCH)
-        matcher.addURI("com.iffy.mianshi","test",INSERTNUMBER)
-        return matcher
+    init {
+        // 添加两个URI筛选
+        URI_MATCHER.addURI(PERSON_AUTHORITY, "person", PERSON)
+        // 使用通配符#，匹配任意数字
+        URI_MATCHER.addURI(PERSON_AUTHORITY, "person/#", PERSON_ID)
     }
-    override fun insert(p0: Uri, p1: ContentValues?): Uri? {
-        when(buildURImatcher().match(p0)) {
-            INSERTNUMBER -> insertNumber()
-            INSERTADDRESS-> insertAddress()
+
+
+    override fun insert(p0: Uri, contentValue: ContentValues?): Uri? {
+        when (URI_MATCHER.match(p0)) {
+            PERSON -> {
+                println("IffyContentProvider 要插入联系人 db:${getDB()} dao:${getDB()?.getPersonDao()}")
+                //折腾 还需要把contentValue转化成Person对象
+                getDB()?.getPersonDao()?.insert(
+                    Person(
+                        null,
+                        contentValue?.getAsString("name"),
+                        contentValue?.getAsInteger("age")
+                    )
+                )
+                //向外界通知该ContentProvider里的数据发生了变化 ,以便ContentObserver作出相应
+                context?.contentResolver?.notifyChange(Uri.parse("content://${IffyContentProvider.PERSON_AUTHORITY}/person"), null)
+            }
         }
         return null
     }
 
-    private fun insertAddress() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun getDB(): PersonDatabase? {
+        return PersonDatabase.getDB(context?.applicationContext)
     }
 
-    private fun insertNumber() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
-    override fun query(p0: Uri, p1: Array<out String>?, p2: String?, p3: Array<out String>?, p4: String?): Cursor? {
-        return null
+    override fun query(
+        p0: Uri,
+        p1: Array<out String>?,
+        p2: String?,
+        p3: Array<out String>?,
+        p4: String?
+    ): Cursor? {
+        println("IffyContentProvider 要查询联系人")
+        var data = getDB()?.getPersonDao()?.getAll()
+        //将data(List<Person>)转换成cursor
+        var cursor = MatrixCursor(arrayOf("p_id", "name", "age"))
+        data?.forEach {
+            cursor.addRow(arrayOf(it.p_id,it.name,it.age))
+        }
+
+        println("IffyContentProvider 返回联系人")
+        return cursor
     }
 
     override fun onCreate(): Boolean {
@@ -62,7 +102,15 @@ class IffyContentProvider:ContentProvider() {
         return 0
     }
 
-    override fun delete(p0: Uri, p1: String?, p2: Array<out String>?): Int {
+    override fun delete(uri: Uri, p1: String?, p2: Array<out String>?): Int {
+        when(URI_MATCHER.match(uri)){
+            PERSON_ID->{
+               var id =  ContentUris.parseId(uri)
+                println("有人要删除 id是$id 的人")
+                getDB()?.getPersonDao()?.deleteAPerson(id.toInt())
+                context?.contentResolver?.notifyChange(Uri.parse("content://${PERSON_AUTHORITY}/person/$id"), null)
+            }
+        }
         return 0
     }
 

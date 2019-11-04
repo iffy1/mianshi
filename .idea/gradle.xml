@@ -9,11 +9,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/providervisitor" />
             <option value="$PROJECT_DIR$/remoteservice" />
             <option value="$PROJECT_DIR$/vlayoutexamples" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
     </option>
   </component>

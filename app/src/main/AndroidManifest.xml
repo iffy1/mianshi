@@ -16,6 +16,11 @@
             android:name="com.iffy.mianshi.multiProcess.permission.REMOTE_SERVICE_PERMISSION"
             android:protectionLevel="normal" />
 
+    <!--限制PROVIDER的写入权限， 也可以添加读取权限-->
+    <permission android:name="com.iffy.permission.WRITE_CONTENT_PROVIDER"
+            android:protectionLevel="normal" />
+
+
     <application
             android:name=".application.MyApplication"
             android:allowBackup="false"
@@ -32,7 +37,9 @@
         <activity android:name=".application.ActivityApplicationA">
 
         </activity>
-        <activity android:name=".application.ActivityApplicationB"></activity>
+        <activity android:name=".application.ActivityApplicationB">
+
+        </activity>
 
         <service android:name=".bindService.Beband" />
         <service android:name=".messenger.MessengerService" />
@@ -54,12 +61,23 @@
 
         </activity>
         <activity android:name=".oom.LeakTestActivity">
+
+        </activity>
+
+        <!--authoritie必须和URI一致 而且不能和其他provider重复
+        Provider可以提供读权限，写权限，或者权限，-->
+        <provider
+                android:name=".provider.IffyContentProvider"
+                android:authorities="com.iffy.mianshi.provider.PersonContentProvider"
+                android:exported="true"
+                android:writePermission="com.iffy.permission.WRITE_CONTENT_PROVIDER" />
+
+        <activity android:name=".provider.TestProviderActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <activity android:name=".intentservice.MyIntentServiceActivity">
 
@@ -68,15 +86,27 @@
         <activity android:name=".messenger.MessengerActivity">
 
         </activity>
-        <activity android:name=".broadcast.BroadcastActivity"></activity>
-        <activity android:name=".alertpopupdialog.PopupDialog"></activity>
+        <activity android:name=".broadcast.BroadcastActivity">
+
+        </activity>
+        <activity android:name=".alertpopupdialog.PopupDialog">
+
+        </activity>
         <!--动画-->
-        <activity android:name=".animator.ValueAnimatorActivity"></activity>
+        <activity android:name=".animator.ValueAnimatorActivity">
 
-        <activity android:name=".animator.PropertyAnimatorActivity"></activity>
-        <activity android:name=".animator.transition.SimpleTransitionDemoActivity"></activity>
+        </activity>
 
-        <activity android:name=".animator.sceneTransition.Aactivity"></activity>
+        <activity android:name=".animator.PropertyAnimatorActivity">
+
+        </activity>
+        <activity android:name=".animator.transition.SimpleTransitionDemoActivity">
+
+        </activity>
+
+        <activity android:name=".animator.sceneTransition.Aactivity">
+
+        </activity>
         <activity android:name=".animator.sceneTransition.Bactivity">
 
         </activity>
@@ -86,26 +116,38 @@
         </activity>
 
         <!--Surface view-->
-        <activity android:name=".surfaceView.SurfaceActivity"></activity>
+        <activity android:name=".surfaceView.SurfaceActivity">
+
+        </activity>
 
         <!--ListActivity-->
 
-        <activity android:name=".list.ListActivity"></activity>
+        <activity android:name=".list.ListActivity">
+
+        </activity>
 
         <!--RecyclerActivity-->
-        <activity android:name=".recyclerView.RecyclerActivity"></activity>
+        <activity android:name=".recyclerView.RecyclerActivity">
+
+        </activity>
         <activity android:name=".recyclerView.animation.RecyclerAnimationActivity">
 
         </activity>
 
 
         <!--RecyclerInRecyclerActivity-->
-        <activity android:name=".recyclerView.RecyclerInRecyclerActivity"></activity>
+        <activity android:name=".recyclerView.RecyclerInRecyclerActivity">
+
+        </activity>
 
         <!--序列化-->
-        <activity android:name=".序列化.ActivityA"></activity>
+        <activity android:name=".序列化.ActivityA">
 
-        <activity android:name=".序列化.ActivityB"></activity>
+        </activity>
+
+        <activity android:name=".序列化.ActivityB">
+
+        </activity>
 
         <!--差值器-->
         <activity android:name=".animator.插值器.插值器Activity">
@@ -113,13 +155,19 @@
         </activity>
 
         <!--存储-->
-        <activity android:name=".存储.StoreActivity"></activity>
+        <activity android:name=".存储.StoreActivity">
+
+        </activity>
 
         <!--View机制-->
-        <activity android:name=".view刷新机制.ViewActivity"></activity>
+        <activity android:name=".view刷新机制.ViewActivity">
+
+        </activity>
 
         <!--Network类-->
-        <activity android:name=".network.NetWorkActivity"></activity>
+        <activity android:name=".network.NetWorkActivity">
+
+        </activity>
 
         <!--View优化-->
         <activity android:name=".view优化.ViewOptActivity" />
@@ -143,10 +191,14 @@
         <activity android:name=".async.AsyncActivity">
 
         </activity>
-        <activity android:name=".async.CoroutineMainScopeActivity"></activity>
+        <activity android:name=".async.CoroutineMainScopeActivity">
+
+        </activity>
         <activity android:name=".async.RxjavaActivity" />
 
-        <activity android:name=".async.HandlerActivity"></activity>
+        <activity android:name=".async.HandlerActivity">
+
+        </activity>
 
         <activity android:name=".async.HandlerThreadActivity">
 
@@ -169,6 +221,10 @@
         </activity>
 
         <activity android:name=".多线程.ProduceCustomerActivity">
+
+        </activity>
+
+        <activity android:name=".lrucache.MyLruCacheActivity">
 
         </activity>
 

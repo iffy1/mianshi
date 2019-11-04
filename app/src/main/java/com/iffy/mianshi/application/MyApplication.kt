@@ -3,11 +3,9 @@ package com.iffy.mianshi.application
 import android.app.Application
 import android.content.Context
 import android.util.SparseArray
-import com.squareup.leakcanary.LeakCanary
-import com.squareup.leakcanary.RefWatcher
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
+import androidx.room.Room
+import leakcanary.AppWatcher
+import leakcanary.LeakCanary
 
 
 //Application对象的生命周期是整个程序中最长的，它的生命周期就等于这个程序的生命周期。
@@ -35,17 +33,9 @@ class MyApplication : Application() {
     //2、Application数据缓存
     var catcheData = SparseArray<Student>()
 
-    //LeakCanary用来监测引用泄漏的
-    private lateinit var refWatcher: RefWatcher
+
     companion object {
         val STUDENT_EXTRA = "student"
-
-        //LeakCanary leak检测工具 MyApplication中还要提供getRefWatcher静态方法来返回全局RefWatcher
-        fun getRefWatcher(c:Context): RefWatcher {
-            println("Application getRefWatcher")
-            var app = c.applicationContext as MyApplication
-            return app.refWatcher
-        }
     }
 
 
@@ -64,18 +54,9 @@ class MyApplication : Application() {
         println("Application onCreate")
 
         //LeakCanary leak检测工具
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            //return
-            refWatcher = RefWatcher.DISABLED
-        }
-            //LeakCanary.install(this)
-        refWatcher = LeakCanary.install(this)
-        //println("Application onCreate $refWatcher")
+        AppWatcher.config = AppWatcher.config.copy(watchFragmentViews = false)
         //LeakCanary leak检测工具
     }
-
-
-
 
     //当终止应用程序对象时调用，不保证一定被调用，
     override fun onTerminate() {

@@ -6,15 +6,13 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.os.AsyncTask
-import android.os.Bundle
-import android.os.Handler
-import android.os.Message
+import android.os.*
 import android.util.SparseArray
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.util.forEach
 import com.iffy.mianshi.R
+import leakcanary.AppWatcher
 import java.lang.ref.WeakReference
 
 
@@ -32,7 +30,7 @@ class OomActivity : AppCompatActivity() {
         Thread(Runnable {
             var gallery = SparseArray<Bitmap>()
             var i = 0
-            while (i<100) {
+            while (i < 100) {
                 try {
                     println("OOM添加图片$i")
                     gallery.put(i++, BitmapFactory.decodeResource(resources, R.mipmap.bigpic))
@@ -55,7 +53,7 @@ class OomActivity : AppCompatActivity() {
 
         //错误用法，持有activity的引用，导致不能释放
         Thread(Runnable {
-            while (true){
+            while (true) {
                 println("keep working 持有activity 对象")
             }
         }).start()
@@ -72,18 +70,30 @@ class OomActivity : AppCompatActivity() {
         }.execute()
 
         //持有activit引用
-        Handler().post(Runnable {
-            while (true) {
-                println("keep working 持有activity 对象")
-            }
-        })
+        //Android中post()方法可以直接在非UI线程中更新UI
+        Thread(Runnable {
+            Looper.prepare()
+            Handler().post(Runnable {
+                while (true) {
+                    println("Handler当前线程:${Thread.currentThread().name}")
+                    println("keep working 持有activity 对象")
+                }
+            })
+            Looper.loop()
+        }).start()
+
 
         //弱引用持有activit引用
-        MyHandler(this).post(Runnable {
-            while (true) {
-                println("keep working 持有activity 对象")
-            }
-        })
+        Thread(Runnable {
+            Looper.prepare()
+            MyHandler(this).post(Runnable {
+                while (true) {
+                    println("MyHandler当前线程:${Thread.currentThread().name}")
+                    println("keep working 持有activity 对象")
+                }
+            })
+            Looper.loop()
+        }).start()
 
 
         //静态内部类（嵌套类）
@@ -97,9 +107,16 @@ class OomActivity : AppCompatActivity() {
         MyAsync().execute()
     }
 
+    //MainActivity存在内存泄漏，原因就是非静态内部类LeakThread持有外部类MainActivity的引用，LeakThread中做了耗时操作，导致MainActivity无法被释放。
+    override fun onDestroy() {
+        super.onDestroy()
+        AppWatcher.objectWatcher.watch(this)
+    }
+
 }
 
-class MyBroadCaster:BroadcastReceiver(){
+
+class MyBroadCaster : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
 
     }
