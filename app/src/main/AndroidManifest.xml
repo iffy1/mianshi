@@ -73,10 +73,7 @@
                 android:writePermission="com.iffy.permission.WRITE_CONTENT_PROVIDER" />
 
         <activity android:name=".provider.TestProviderActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity android:name=".intentservice.MyIntentServiceActivity">
@@ -142,7 +139,10 @@
 
         <!--序列化-->
         <activity android:name=".序列化.ActivityA">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".序列化.ActivityB">
