@@ -12,5 +12,6 @@
 <p>2.增量文件和old.apk合并成新的new2.apk
 ./bspatch old.apk new2.apk old-to-new.patch
 
+</p>
 
 </body></html>
