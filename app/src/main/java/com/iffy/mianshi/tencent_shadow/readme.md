@@ -1,0 +1,5 @@
+https://github.com/Tencent/Shadow
+如果插件的applicationId和宿主的applicationId不相同，系统获取到插件的applicationId是一个没有安装过的包名，系统就因此crash。
+为了避免出现上述情况，有两种方法：
+1. hook系统接口，需要兼容各种OEM系统以及Android各版本
+2. 插件的applicationId和宿主的applicationId保持一致

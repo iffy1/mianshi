@@ -139,10 +139,7 @@
 
         <!--序列化-->
         <activity android:name=".序列化.ActivityA">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity android:name=".序列化.ActivityB">
@@ -226,6 +223,15 @@
 
         <activity android:name=".lrucache.MyLruCacheActivity">
 
+        </activity>
+
+        <!--热修复-->
+
+        <activity android:name=".hotfix.HotfixActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 
