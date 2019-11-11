@@ -64,6 +64,7 @@ class ListActivity : AppCompatActivity() {
             arrayOf("Title", "Content", "Image"),
             intArrayOf(R.id.simpleAdapterItemTitle, R.id.simpleAdapterItemContent, R.id.simpleAdapterImg)
         )
+
         listA.adapter = simpleAdapter
         /*---------------------ListA SimpleAdapter---------------------*/
 

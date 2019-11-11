@@ -1,1 +1,1 @@
-include ':app', ':remoteservice',':vlayoutexamples', ':providervisitor', ':incremental'
+include ':app', ':remoteservice',':vlayoutexamples', ':providervisitor', ':incremental', ':androidmvp'
