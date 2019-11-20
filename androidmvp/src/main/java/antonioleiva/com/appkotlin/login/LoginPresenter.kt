@@ -6,7 +6,9 @@ class LoginPresenter(var loginViewListener: LoginViewListener?) {
 
     private val loginInteractorModel = LoginInteractorModel()
 
+
     fun validateCredentials(username: String, password: String) {
+
         //通知activiry 显示进度条
         loginViewListener?.showProgress()
         //找model验证用户名密码

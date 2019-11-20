@@ -16,6 +16,11 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 //MVP模式三个层次之间是通过两个接口（LoginViewListener OnLoginFinishedListener）来进行交互的
 
+//Since the View and the Presenter work closely together,
+// they need to have a reference to one another.
+// To make the Presenter unit testable with JUnit,
+// the View is abstracted and an interface for it used.
+
 //MVP中的View
 class LoginActivityView : AppCompatActivity() {
 

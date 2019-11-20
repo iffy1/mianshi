@@ -191,7 +191,12 @@
         <activity android:name=".async.CoroutineMainScopeActivity">
 
         </activity>
-        <activity android:name=".async.RxjavaActivity" />
+        <activity android:name=".async.RxjavaActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
 
         <activity android:name=".async.HandlerActivity">
 
@@ -228,10 +233,7 @@
         <!--热修复-->
 
         <activity android:name=".hotfix.HotfixActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
 
