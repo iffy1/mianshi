@@ -22,7 +22,7 @@ class MyLruCacheActivity : AppCompatActivity() {
         data.add("https://www.sony.com.cn/content/dam/sonystyle/common/homepage/category/pa/srs_xb12_19082_600295.jpg")
         data.add("https://www.sony.com.cn/content/dam/sonystyle/common/homepage/category/pa/block_wf_1000xm3_0723_600703.jpg")
         data.add("https://www.sony.com.cn/content/dam/sonystyle/common/homepage/category/pa/block_nw_zx505_295398.jpg")
-        data.add("https://www.sony.com.cn/content/dam/sonystyle/common/homepage/category/di/block_a7rm4_1030_600703.jpg")
+        data.add("https://www.sony.com.cn/content/dam/sonystyle/common/homepage/category/Di/block_a7rm4_1030_600703.jpg")
         data.add("https://www.sony.com.cn/content/dam/sonystyle/common/homepage/category/intelligent/block_xperia5_xpss.jpg")
         data.add("https://www.sony.com.cn/content/dam/sonystyle/common/homepage/category/av/block_z9g_xpss_600703.jpg")
         data.add("https://www.sonystyle.com.cn/content/dam/sonystyle/products/lenses/e_lens/sel24f14gm/feature/sel24f14gm_pic01.png")
@@ -35,7 +35,7 @@ class MyLruCacheActivity : AppCompatActivity() {
         data.add("https://www.sonystyle.com.cn/content/dam/sonystyle/products/lenses/e_lens/sel24f14gm/feature/sel24f14gm_10.jpg")
         data.add("https://www.sonystyle.com.cn/content/dam/sonystyle/products/lenses/e_lens/sel24f14gm/feature/sel24f14gm_11.jpg")
         data.add("https://www.sonystyle.com.cn/content/dam/sonystyle/products/lenses/e_lens/sel24f14gm/feature/sel24f14gm_yz01.jpg")
-        data.add("https://www.sonystyle.com.cn/content/dam/sonystyle/products/headphone/wf_1000xm3/product/img_wf_1000xm3_b1_fecture.jpg")
+        data.add("https://www.sonystyle.com.cn/content/dam/sonystyle/products/headphone/wf_1000xm3/Product/img_wf_1000xm3_b1_fecture.jpg")
         data.add("https://www.sonystyle.com.cn/content/dam/sonystyle/products/headphone/wf_1000xm3/feature/p1a.jpg")
         data.add("https://www.sonystyle.com.cn/content/dam/sonystyle/products/headphone/wf_1000xm3/feature/p4.jpg")
 

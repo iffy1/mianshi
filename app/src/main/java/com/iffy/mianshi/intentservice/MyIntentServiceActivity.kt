@@ -42,7 +42,7 @@ class MyIntentServiceActivity : AppCompatActivity() {
             intent.putExtra(BTN_IDENTIFY, 2)
             intent.putExtra(
                 IMGURL,
-                "https://www.sony.com.cn/content/dam/sonystyle/common/homepage/category/di/block_a7rm4_1909_600703.jpg"
+                "https://www.sony.com.cn/content/dam/sonystyle/common/homepage/category/Di/block_a7rm4_1909_600703.jpg"
             )
             startService(intent)
         }

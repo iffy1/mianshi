@@ -2,10 +2,10 @@ package com.iffy.mianshi.pattern.VI命令模式.devices
 
 class Light {
     fun turnOnLight(){
-        println("Light is on")
+        println("LightWithTwoPin is on")
     }
 
     fun turnOffLight(){
-        println("Light is off")
+        println("LightWithTwoPin is off")
     }
 }

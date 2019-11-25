@@ -218,11 +218,11 @@
 
         </activity>
 
-        <activity android:name=".多线程.MultithreadingActivity">
+        <activity android:name=".multiThread.MultithreadingActivity">
 
         </activity>
 
-        <activity android:name=".多线程.ProduceCustomerActivity">
+        <activity android:name=".multiThread.ProduceCustomerActivity">
 
         </activity>
 
