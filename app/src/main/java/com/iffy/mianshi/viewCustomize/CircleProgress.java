@@ -108,7 +108,7 @@ public class CircleProgress extends View {
 
     //初始化画笔
     private void initPaint() {
-        // test paint 十字线
+        // FromArrayJava paint 十字线
         mCoordinatePaint.setColor(mForegroundColor);
         //抗锯齿
         mCoordinatePaint.setAntiAlias(true);

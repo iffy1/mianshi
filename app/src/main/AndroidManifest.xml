@@ -17,7 +17,8 @@
             android:protectionLevel="normal" />
 
     <!--限制PROVIDER的写入权限， 也可以添加读取权限-->
-    <permission android:name="com.iffy.permission.WRITE_CONTENT_PROVIDER"
+    <permission
+            android:name="com.iffy.permission.WRITE_CONTENT_PROVIDER"
             android:protectionLevel="normal" />
 
 
@@ -164,7 +165,52 @@
         <!--Network类-->
         <activity android:name=".network.NetWorkActivity">
 
+
         </activity>
+
+        <!--rxjava-->
+        <activity android:name=".rxjava.create.demo.RxjavaCreateActivity">
+
+        </activity>
+
+        <activity android:name=".rxjava.transformOperation.demo.TransformActivity">
+
+        </activity>
+        <activity android:name=".rxjava.merge.demoC.CombineLatestActivity">
+
+        </activity>
+        <activity android:name=".rxjava.function.demoA.SchedulerActivity">
+
+        </activity>
+
+
+        <activity android:name=".rxjava.function.demoNetworkLunXun.WangLuoLunXunRepeatWhenActivity">
+
+        </activity>
+
+        <activity android:name=".rxjava.function.wangluoChuCuoChongShi.WangLuoChuCuoChongShiActivity">
+
+        </activity>
+
+        <activity android:name=".rxjava.filter.demoA.UnbounceActivity">
+
+
+        </activity>
+
+        <activity android:name=".rxjava.filter.demoB.InputSearchUnbounceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+
+        <activity android:name=".rxjava.merge.demoB.MergeNetworkAndLocalActivity">
+
+
+        </activity>
+
 
         <!--View优化-->
         <activity android:name=".view优化.ViewOptActivity" />
@@ -191,11 +237,8 @@
         <activity android:name=".async.CoroutineMainScopeActivity">
 
         </activity>
-        <activity android:name=".async.RxjavaActivity" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+        <activity android:name=".async.RxjavaActivity">
+
         </activity>
 
         <activity android:name=".async.HandlerActivity">
