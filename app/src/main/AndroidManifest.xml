@@ -197,7 +197,14 @@
 
         </activity>
 
-        <activity android:name=".rxjava.filter.demoB.InputSearchUnbounceActivity">
+        <activity android:name=".rxjava.filter.demoB.InputSearchUnbounceActivity"></activity>
+
+        <activity android:name=".rxjava.backPressure.BackPressureActivity">
+
+
+        </activity>
+
+        <activity android:name=".rxjava.backPressure.StratageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
