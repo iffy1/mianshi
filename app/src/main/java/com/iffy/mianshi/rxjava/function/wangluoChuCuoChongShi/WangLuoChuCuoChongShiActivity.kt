@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit
 
 //1打开飞行模式
 //打开app,并且在重试第10次之前 关闭飞行模式，否则超过10次不再重试
-
+//https://www.jianshu.com/p/508c30aef0c1
 class WangLuoChuCuoChongShiActivity : AppCompatActivity() {
     var retryCount = 0
     private val MAX_RETRY = 10

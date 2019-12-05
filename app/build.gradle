@@ -65,5 +65,12 @@ android {
         implementation 'android.arch.persistence.room:runtime:1.1.1'
         /*kpat--Kotlin Annotation Processing，顾名思义，就是服务于Kotlin的Annotation Processing*/
         kapt 'android.arch.persistence.room:compiler:1.1.1'
+
+        //圖片加載工具
+        implementation 'com.github.bumptech.glide:glide:4.10.0'
+        annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
+        //点赞库
+        implementation 'com.sackcentury:shinebutton:1.0.0'
     }
 }

@@ -15,4 +15,16 @@
             android:text="我是防抖按钮"></Button>
 
 
+    <com.sackcentury.shinebuttonlib.ShineButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:src="@android:color/darker_gray"
+            android:id="@+id/btn_unbunce_B"
+            app:btn_color="@android:color/darker_gray"
+            app:btn_fill_color="@android:color/holo_green_dark"
+            app:allow_random_color="false"
+            app:siShape="@raw/smile"/>
+
+
 </LinearLayout>

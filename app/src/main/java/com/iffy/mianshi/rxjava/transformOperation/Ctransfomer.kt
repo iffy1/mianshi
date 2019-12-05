@@ -27,7 +27,8 @@ fun main() {
     flatmapSampleFour()
 
     println("例5 研究Function功能")
-    println("---------------------3.3 ConcatMap（）与FlatMap（）的 区别在于：拆分 & 重新合并生成的事件序列 的顺序 = 被观察者旧序列生产的顺序")
+    println("---------------------3.3 ConcatMap（）与FlatMap（）的 区别在于：" +
+            "拆分 & 重新合并生成的事件序列 的顺序 = 被观察者旧序列生产的顺序")
     concatMapSample()
 
     println("---------------------3.4 Buffer（）定期从 被观察者（Obervable）需要发送的事件中 获取一定数量的事件 & 放到缓存区中，最终发送")
