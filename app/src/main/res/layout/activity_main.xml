@@ -6,9 +6,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".activity与fragment通信.MainActivity">
+        tools:context=".activityFragmentComunication.MainActivity">
     <fragment android:id="@+id/fragmentA"
-              class="com.iffy.mianshi.activity与fragment通信.MainFragment"
+              class="com.iffy.mianshi.activityFragmentComunication.MainFragment"
               android:layout_width="match_parent" android:layout_height="wrap_content">
     </fragment>
 

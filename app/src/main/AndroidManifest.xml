@@ -33,7 +33,7 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".activity与fragment通信.MainActivity">
+        <activity android:name=".activityFragmentComunication.MainActivity">
 
         </activity>
         <activity android:name=".application.ActivityApplicationA">
@@ -140,26 +140,35 @@
         </activity>
 
         <!--序列化-->
-        <activity android:name=".序列化.ActivityA">
+        <activity android:name=".parcelableSerializabel.ActivityA">
 
         </activity>
 
-        <activity android:name=".序列化.ActivityB">
+        <activity android:name=".parcelableSerializabel.ActivityB">
 
         </activity>
 
         <!--差值器-->
-        <activity android:name=".animator.插值器.插值器Activity">
+        <activity android:name=".animator.Interpolator.ActivityInterpolator">
 
         </activity>
 
         <!--存储-->
-        <activity android:name=".存储.StoreActivity">
+        <activity android:name=".storage.StoreActivity">
 
         </activity>
 
+        <activity android:name=".storage.Room.TestRoomActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
         <!--View机制-->
-        <activity android:name=".view刷新机制.ViewActivity">
+        <activity android:name=".viewRefresh.ViewActivity">
 
         </activity>
 
@@ -236,7 +245,7 @@
 
 
         <!--View优化-->
-        <activity android:name=".view优化.ViewOptActivity" />
+        <activity android:name=".viewOptimiz.ViewOptActivity" />
 
         <!--自定义View-->
         <activity android:name=".viewCustomize.CustomizeViewActivity">
@@ -249,7 +258,7 @@
         </activity>
 
 
-        <activity android:name=".view事件分发.ViewClickActivity">
+        <activity android:name=".viewEvent.ViewClickActivity">
 
 
         </activity>
@@ -292,7 +301,7 @@
 
         </activity>
 
-        <activity android:name=".lrucache.MyLruCacheActivity">
+        <activity android:name=".lrucache.activity.MyLruCacheActivity">
 
         </activity>
 
@@ -303,14 +312,26 @@
         </activity>
 
         <!--IMG框架-->
-        <activity android:name=".image.GlideActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+        <activity android:name=".imageFrameWork.GlideActivity">
 
         </activity>
+
+
+        <activity android:name=".imageFrameWork.PicassoActivity">
+
+        </activity>
+
+        <activity android:name=".imageFrameWork.VectorActivity">
+
+        </activity>
+
+        <activity android:name=".imageFrameWork.DisplayMetricsActivity">
+
+        </activity>
+
+
+
+
 
 
 

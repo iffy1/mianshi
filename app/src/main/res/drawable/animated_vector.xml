@@ -1,0 +1,6 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:drawable="@drawable/ic_airline_seat_flat_angled_black_pressed">
+    <target
+            android:animation="@anim/vector_animator"
+            android:name="group_icon"/>
+</animated-vector>
