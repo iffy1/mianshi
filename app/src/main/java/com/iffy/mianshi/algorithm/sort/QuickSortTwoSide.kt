@@ -1,4 +1,4 @@
-package com.iffy.mianshi.algorithm
+package com.iffy.mianshi.algorithm.sort
 
 fun main() {
     //var data = intArrayOf(4, 7, 3, 5, 6, 2, 8, 4, 1)

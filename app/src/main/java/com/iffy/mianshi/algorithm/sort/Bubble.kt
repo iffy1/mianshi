@@ -1,4 +1,4 @@
-package com.iffy.mianshi.algorithm
+package com.iffy.mianshi.algorithm.sort
 
 fun main() {
     //popSortFirst()

@@ -1,4 +1,4 @@
-package com.iffy.mianshi.algorithm;
+package com.iffy.mianshi.algorithm.sort;
 
 /**
  * Created by weimengshu on 2018/7/13.
