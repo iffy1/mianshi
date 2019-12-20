@@ -111,7 +111,10 @@
         </activity>
         <!--布局-->
         <activity android:name=".constraintLayout.MyConstraintLayout">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!--Surface view-->
@@ -121,7 +124,7 @@
 
         <!--ListActivity-->
 
-        <activity android:name=".list.ListActivity">
+        <activity android:name=".listActivity.ListActivity">
 
         </activity>
 
@@ -159,10 +162,7 @@
         </activity>
 
         <activity android:name=".storage.Room.TestRoomActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
 
