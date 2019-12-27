@@ -1,10 +1,12 @@
 package com.iffy.mianshi.async
 
+import android.app.Activity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.text.method.ScrollingMovementMethod
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -17,6 +19,7 @@ import com.iffy.mianshi.R
 //3维持心跳
 class HandlerActivity : AppCompatActivity() {
     lateinit var blackBoard: TextView
+
     var mainHandler = Handler {
         println("handleMessage Current Thread is ${Thread.currentThread().name}")
         blackBoard.text = "${blackBoard.text} \n Current Thread is ${Thread.currentThread().name}"
@@ -24,6 +27,7 @@ class HandlerActivity : AppCompatActivity() {
         blackBoard.text = "${blackBoard.text} \n ${it.obj as String}"
         true
     }
+
 
     var quenHandler = Handler {
         //拖延显示

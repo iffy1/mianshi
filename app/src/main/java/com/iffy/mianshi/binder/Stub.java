@@ -3,6 +3,7 @@ package com.iffy.mianshi.binder;
 import android.os.*;
 import android.os.Binder;
 
+
 //服务端
 public class Stub extends Binder implements IPlus {
     final static int add = 1000;

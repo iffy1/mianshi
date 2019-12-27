@@ -7,3 +7,4 @@ package com.iffy.mianshi.algorithm.sort
 fun main() {
 
 }
+

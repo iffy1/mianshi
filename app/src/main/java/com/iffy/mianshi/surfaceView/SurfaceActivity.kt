@@ -3,12 +3,11 @@ package com.iffy.mianshi.surfaceView
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.BaseAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GestureDetectorCompat
 import com.iffy.mianshi.R
 
 
@@ -30,7 +29,10 @@ class SurfaceActivity : AppCompatActivity() {
 
         var list = findViewById<ListView>(R.id.list)
         list.adapter = MyAdapter(this)
+
+
     }
+
 
     class MyAdapter(c: Context) : BaseAdapter() {
         var context: Context
