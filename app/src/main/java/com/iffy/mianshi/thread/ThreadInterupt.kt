@@ -11,12 +11,16 @@ fun main() {
         run {
             while (true) {
                 println("我去")
-                Thread.sleep(2000)
+                //Thread.sleep(2000)
+                if(Thread.interrupted()){
+                    return@run
+                }
             }
         }
     }
     var sThread = Thread(runanle)
     sThread.start()
+    Thread.sleep(2000)
     sThread.interrupt()
 
 

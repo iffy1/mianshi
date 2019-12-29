@@ -5,8 +5,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".viewRefresh.ViewActivity">
-    <com.iffy.mianshi.viewRefresh.MView
+        tools:context=".view.viewRefresh.ViewActivity">
+    <com.iffy.mianshi.view.viewRefresh.MView
             android:layout_gravity="center_horizontal"
 
             android:id="@+id/myview"

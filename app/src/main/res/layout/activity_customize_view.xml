@@ -9,7 +9,7 @@
               android:orientation="vertical">
     <!--app:stroke_width="8dp"是自定义的属性-->
     <!--属性缺省值应该在demens.xml文件中定义，不能只是传递一个数值。否则会导致在不同分辨率的手机上显示大小不一致-->
-    <com.iffy.mianshi.viewCustomize.MyView
+    <com.iffy.mianshi.view.viewCustomize.MyView
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:background="#ff4433"
@@ -25,7 +25,8 @@
     </LinearLayout>
 
 
-    <com.iffy.mianshi.viewCustomize.CircleProgress android:id="@+id/customize_progress"
+    <com.iffy.mianshi.view.viewCustomize.CircleProgress
+        android:id="@+id/customize_progress"
                                                    android:layout_width="250dp"
                                                    android:layout_height="250dp"
                                                    android:paddingTop="20dp"
@@ -34,7 +35,7 @@
 
                                                    app:stroke_width="20dp"
                                                    app:text_color="#FFEB3B">
-    </com.iffy.mianshi.viewCustomize.CircleProgress>
+    </com.iffy.mianshi.view.viewCustomize.CircleProgress>
 
 
 </LinearLayout>

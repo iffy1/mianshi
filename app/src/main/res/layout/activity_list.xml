@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".listActivity.ListActivity">
+        tools:context=".view.listView.ListActivity">
     <ListView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1"
               android:background="#00ffff"
               android:id="@+id/listA"/>

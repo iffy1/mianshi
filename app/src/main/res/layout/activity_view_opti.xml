@@ -9,9 +9,9 @@
         android:gravity="center_horizontal|center_vertical">
 
 
-    <com.iffy.mianshi.viewOptimiz.ShakeMaps
+    <com.iffy.mianshi.view.viewOptimiz.ShakeMaps
             android:id="@+id/shakemaps" android:layout_width="match_parent"
-                                       android:layout_height="match_parent"></com.iffy.mianshi.viewOptimiz.ShakeMaps>
+                                       android:layout_height="match_parent"></com.iffy.mianshi.view.viewOptimiz.ShakeMaps>
 
 
 </LinearLayout>

@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".lrucache.activity.MyLruCacheActivity">
+        tools:context=".algorithm.lrucache.activity.MyLruCacheActivity">
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/LrcrecyclerView"

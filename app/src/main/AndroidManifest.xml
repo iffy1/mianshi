@@ -69,12 +69,12 @@
         <!--authoritie必须和URI一致 而且不能和其他provider重复
         Provider可以提供读权限，写权限，或者权限，-->
         <provider
-                android:name=".provider.IffyContentProvider"
-                android:authorities="com.iffy.mianshi.provider.PersonContentProvider"
+                android:name="com.iffy.mianshi.storage.provider.IffyContentProvider"
+                android:authorities="com.iffy.mianshi.storage.provider.PersonContentProvider"
                 android:exported="true"
                 android:writePermission="com.iffy.permission.WRITE_CONTENT_PROVIDER" />
 
-        <activity android:name=".provider.TestProviderActivity">
+        <activity android:name="com.iffy.mianshi.storage.provider.TestProviderActivity">
 
         </activity>
 
@@ -115,7 +115,7 @@
         </activity>
 
         <!--Surface view-->
-        <activity android:name=".surfaceView.SurfaceActivity">
+        <activity android:name="com.iffy.mianshi.view.surfaceView.SurfaceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -124,21 +124,21 @@
 
         <!--ListActivity-->
 
-        <activity android:name=".listActivity.ListActivity">
+        <activity android:name="com.iffy.mianshi.view.listView.ListActivity">
 
         </activity>
 
         <!--RecyclerActivity-->
-        <activity android:name=".recyclerView.RecyclerActivity">
+        <activity android:name="com.iffy.mianshi.view.recyclerView.RecyclerActivity">
 
         </activity>
-        <activity android:name=".recyclerView.animation.RecyclerAnimationActivity">
+        <activity android:name="com.iffy.mianshi.view.recyclerView.animation.RecyclerAnimationActivity">
 
         </activity>
 
 
         <!--RecyclerInRecyclerActivity-->
-        <activity android:name=".recyclerView.RecyclerInRecyclerActivity">
+        <activity android:name="com.iffy.mianshi.view.recyclerView.RecyclerInRecyclerActivity">
 
         </activity>
 
@@ -168,7 +168,7 @@
 
 
         <!--View机制-->
-        <activity android:name=".viewRefresh.ViewActivity">
+        <activity android:name="com.iffy.mianshi.view.viewRefresh.ViewActivity">
 
         </activity>
 
@@ -245,10 +245,10 @@
 
 
         <!--View优化-->
-        <activity android:name=".viewOptimiz.ViewOptActivity" />
+        <activity android:name="com.iffy.mianshi.view.viewOptimiz.ViewOptActivity" />
 
         <!--自定义View-->
-        <activity android:name=".viewCustomize.CustomizeViewActivity">
+        <activity android:name="com.iffy.mianshi.view.viewCustomize.CustomizeViewActivity">
 
         </activity>
 
@@ -258,7 +258,7 @@
         </activity>
 
 
-        <activity android:name=".viewEvent.ViewClickActivity">
+        <activity android:name="com.iffy.mianshi.view.viewEvent.ViewClickActivity">
 
 
         </activity>
@@ -301,7 +301,7 @@
 
         </activity>
 
-        <activity android:name=".lrucache.activity.MyLruCacheActivity">
+        <activity android:name="com.iffy.mianshi.algorithm.lrucache.activity.MyLruCacheActivity">
 
         </activity>
 

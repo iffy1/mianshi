@@ -6,7 +6,7 @@
         android:background="#ffffaa"
         android:orientation="vertical">
 <!--自定义view要用小写+class-->
-    <view class="com.iffy.mianshi.viewEvent.ViewClickActivity$MyView"
+    <view class="com.iffy.mianshi.view.viewEvent.ViewClickActivity$MyView"
         android:id="@+id/viewgroup"
         android:layout_width="match_parent"
         android:layout_height="250dp"

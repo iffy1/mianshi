@@ -14,7 +14,7 @@ import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity() {
-    val PERSON_AUTHORITY = "com.iffy.mianshi.provider.PersonContentProvider"
+    val PERSON_AUTHORITY = "com.iffy.mianshi.storage.provider.PersonContentProvider"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_provider)
