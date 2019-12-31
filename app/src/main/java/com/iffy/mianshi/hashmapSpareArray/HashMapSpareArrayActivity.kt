@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.collection.ArrayMap
 import com.iffy.mianshi.R
+import org.jetbrains.anko.collections.forEach
+
 //为了减少OOM 使用更加轻量的数据结构
 // 我们可以考虑使用ArrayMap/SparseArray而不是HashMap等传统数据结构
 class HashMapSpareArrayActivity : AppCompatActivity() {
@@ -20,6 +22,7 @@ class HashMapSpareArrayActivity : AppCompatActivity() {
         setContentView(R.layout.activity_hashmap_sparearray)
         val btn_hash = findViewById<Button>(R.id.btn_hash_map)
         val btn_sparse = findViewById<Button>(R.id.btn_sparse_array)
+        val btn_sparseb = findViewById<Button>(R.id.btn_sparse_arrayb)
          blackBoard = findViewById<TextView>(R.id.blackboard)
 
         btn_hash.setOnClickListener {
@@ -48,6 +51,18 @@ class HashMapSpareArrayActivity : AppCompatActivity() {
             initSparseArray(count)
             val result = System.currentTimeMillis() - cur
             blackBoard.text = "${blackBoard.text} \n SparseArray add $count xiaoming use $result ms"
+
+        }
+
+        btn_sparseb.setOnClickListener {
+            val mSparseArray = SparseArray<String>()
+            mSparseArray.put(1,"一")
+            mSparseArray.put(0,"零")
+            mSparseArray.put(5,"五")
+            mSparseArray.forEach { i, s ->
+                println("$i---$s")
+            }
+
         }
     }
 
@@ -69,10 +84,10 @@ class HashMapSpareArrayActivity : AppCompatActivity() {
         return hashMap
     }
 
-    private fun initSparseArray(count: Int): SparseArray<Xiaoming> {
+    private fun initSparseArray(count: Int): SparseArray<Any> {
         println("Sparse Start")
-        val sparse = SparseArray<Xiaoming>()
-        for (i in 1..count) {
+        val sparse = SparseArray<Any>()
+        for (i in 1..count step 2) {
             sparse.put(i, Xiaoming("Xiaoming $i", 10 * i))
         }
         println("Sparse End")

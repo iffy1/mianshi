@@ -116,10 +116,7 @@
 
         <!--Surface view-->
         <activity android:name="com.iffy.mianshi.view.surfaceView.SurfaceActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <!--ListActivity-->
@@ -290,6 +287,10 @@
         <activity android:name="com.iffy.mianshi.popupwindow.PopUpWinActivity" />
 
         <activity android:name=".hashmapSpareArray.HashMapSpareArrayActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 

@@ -1,25 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/layout_root_view"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffaa"
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_hash_map"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="HashMap"
+        app:layout_constraintEnd_toStartOf="@+id/btn_sparse_array"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <Button
+        android:id="@+id/btn_sparse_array"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/btn_hash_map"
+        android:text="SparseArray"
+        app:layout_constraintEnd_toStartOf="@+id/btn_sparse_arrayb"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <Button
+        android:id="@+id/btn_sparse_arrayb"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/btn_hash_map"
+        android:text="SparseArrayB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <TextView
+        android:id="@+id/blackboard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffaa"
-        android:orientation="vertical"
-        android:gravity="center_horizontal|center_vertical">
-    <Button android:id="@+id/btn_hash_map" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="HashMap" android:layout_marginTop="85dp" android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" android:layout_marginStart="56dp"/>
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
-    <Button android:id="@+id/btn_sparse_array" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="SparseArray" android:layout_toEndOf="@+id/btn_hash_map" android:layout_marginStart="107dp"
-            android:layout_marginTop="84dp" android:layout_alignParentTop="true" android:layout_alignParentEnd="true"
-            android:layout_marginEnd="46dp"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="289dp" />
 
-    <TextView android:layout_width="match_parent" android:layout_height="120dp" android:id="@+id/blackboard"
-              android:layout_marginTop="189dp"
-              android:layout_alignParentBottom="true" android:layout_marginBottom="211dp"
-              android:layout_alignParentTop="true"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.14" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
