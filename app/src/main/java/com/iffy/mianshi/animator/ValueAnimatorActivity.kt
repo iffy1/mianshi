@@ -16,6 +16,7 @@ class ValueAnimatorActivity : AppCompatActivity() {
         var va = ValueAnimator()
         va.setIntValues(10,20,30,40,50,60,70,80,90,100,200,300)
         va.setDuration(2000)
+        va.interpolator
 
         va.addUpdateListener {
 

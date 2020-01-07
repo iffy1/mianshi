@@ -21,6 +21,8 @@ class MultithreadingActivity : AppCompatActivity() {
                 gotoworkC()
             }).start()
         }
+        btnA.measuredHeight
+        btnA.measuredWidth
 
         btnB = findViewById(R.id.button_multithread_B)
         btnB.setOnClickListener {
