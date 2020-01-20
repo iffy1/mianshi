@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':module_async'
 // ':remoteservice',
 include ':module_animation', ':module_base', ':module_view'
 //,':vlayoutexamples', ':providervisitor', ':incremental', ':androidmvp', ':androidmvp_google'

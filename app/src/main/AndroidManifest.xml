@@ -260,26 +260,26 @@
 
         </activity>
         <!-- Aysnc task-->
-        <activity android:name=".async.AsyncActivity">
+        <activity android:name="com.iffy.async.AsyncActivity">
 
         </activity>
-        <activity android:name=".async.CoroutineMainScopeActivity">
+        <activity android:name="com.iffy.async.CoroutineMainScopeActivity">
 
         </activity>
-        <activity android:name=".async.RxjavaActivity">
-
-        </activity>
-
-        <activity android:name=".async.HandlerActivity">
+        <activity android:name="com.iffy.async.RxjavaActivity">
 
         </activity>
 
-        <activity android:name=".async.HandlerThreadActivity">
+        <activity android:name="com.iffy.async.HandlerActivity">
+
+        </activity>
+
+        <activity android:name="com.iffy.async.HandlerThreadActivity">
 
         </activity>
 
 
-        <activity android:name=".async.HandlerBetweenMainAndSubActivity">
+        <activity android:name="com.iffy.async.HandlerBetweenMainAndSubActivity">
 
         </activity>
 
@@ -294,11 +294,11 @@
 
         </activity>
 
-        <activity android:name=".multiThread.MultithreadingActivity">
+        <activity android:name="com.iffy.async.MultithreadingActivity">
 
         </activity>
 
-        <activity android:name=".multiThread.ProduceCustomerActivity">
+        <activity android:name="com.iffy.async.ProduceCustomerActivity">
 
         </activity>
 

@@ -1,10 +1,10 @@
 package com.iffy.mianshi.objectAsParameter
 
 fun main() {
-    var student = Student("iffy")
-    var teacher = Teacher()
+    val student = Student("iffy")
+    val teacher = Teacher()
     println(student.name)
     teacher.changeName(student)
-    println(student.name)
+    println(student.name)//结果student的名字被改成zhang san
 
 }

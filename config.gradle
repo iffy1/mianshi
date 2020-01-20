@@ -1,6 +1,7 @@
 ext {
     isBuildAnimationApp = true
     isBuildViewApp = true
+    isBuildAsyncApp = true
 
     defaultConfig = [
             compileSdkVersion: 29,
