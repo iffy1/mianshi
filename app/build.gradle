@@ -6,14 +6,16 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion rootProject.ext.defaultConfig.compileSdkVersion
+    buildToolsVersion rootProject.ext.defaultConfig.buildToolsVersion
     defaultConfig {
         applicationId "com.iffy.mianshi"
-        minSdkVersion 28
-        targetSdkVersion 29
+        minSdkVersion rootProject.ext.defaultConfig.minSdkVersion
+        targetSdkVersion rootProject.ext.defaultConfig.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        //Cannot fit requested classes in a single dex file (# methods: 78196 > 65536)
+        multiDexEnabled true
         testInstrumentationRunner "androidx.FromArrayJava.runner.AndroidJUnitRunner"
         //注解 ROOM
         javaCompileOptions {
@@ -79,5 +81,8 @@ android {
         //ViewModel
         implementation "android.arch.lifecycle:extensions:1.1.1"
         implementation "android.arch.lifecycle:viewmodel:1.1.1"
+
+        //Cannot fit requested classes in a single dex file (# methods: 78196 > 65536)
+        implementation 'com.android.support:multidex:1.0.3'
     }
 }

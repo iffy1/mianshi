@@ -1,0 +1,11 @@
+ext {
+    isBuildAnimationApp = true
+    isBuildViewApp = true
+
+    defaultConfig = [
+            compileSdkVersion: 29,
+            buildToolsVersion: "29.0.2",
+            minSdkVersion: 16,
+            targetSdkVersion: 29
+    ]
+}

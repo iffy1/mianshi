@@ -6,8 +6,8 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "antonioleiva.com.appkotlin"
-        minSdkVersion 28
-        targetSdkVersion 29
+        minSdkVersion rootProject.ext.defaultConfig.minSdkVersion
+        targetSdkVersion rootProject.ext.defaultConfig.targetSdkVersion
         versionCode 1
         versionName "1.0"
 

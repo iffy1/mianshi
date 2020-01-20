@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">module_animation</string>
+    <string name="content">动画测试</string>
+    <string name="valueAnimator">ValueAnimator（属性动画）</string>
+    <string name="valueAnimatorPolator">属性动画差值器</string>
+    <string name="objectAnimator">ObjectAnimator（属性动画 自动更新）</string>
+    <string name="viewAnimation">ViewAnimation(视图动画)</string>
+    <string name="sceneTransition">SceneTransition(转场动画)</string>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/layout_root_view"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#23C78D"
+              android:gravity="center_horizontal|top"
+              android:orientation="vertical">
+    <!--app:stroke_width="8dp"是自定义的属性-->
+    <!--属性缺省值应该在demens.xml文件中定义，不能只是传递一个数值。否则会导致在不同分辨率的手机上显示大小不一致-->
+    <com.iffy.module_view.viewCustomize.MyView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="#ff4433"
+            app:my_text_color="@color/colorPrimary"
+            app:my_text_size="48sp"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+        <EditText android:id="@+id/precent_value" android:layout_width="180dp" android:layout_height="wrap_content"
+                  android:layout_weight="1" android:inputType="number"/>
+        <Button android:id="@+id/set_value_btn" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="设置"/>
+    </LinearLayout>
+
+
+    <com.iffy.module_view.viewCustomize.CircleProgress
+        android:id="@+id/customize_progress"
+                                                   android:layout_width="250dp"
+                                                   android:layout_height="250dp"
+                                                   android:paddingTop="20dp"
+                                                   android:paddingEnd="20dp"
+                                                   app:background_color="#445566"
+
+                                                   app:stroke_width="20dp"
+                                                   app:text_color="#FFEB3B">
+    </com.iffy.module_view.viewCustomize.CircleProgress>
+
+
+</LinearLayout>

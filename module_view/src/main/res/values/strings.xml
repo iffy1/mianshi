@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">module_view</string>
+
+    <string name="list_activity">ListActivity</string>
+    <string name="recycler_animation_activity">RecyclerAnimationActivity</string>
+    <string name="recycler_activity">RecyclerActivity</string>
+    <string name="recyclerIn_recycler_activity">RecyclerInRecyclerActivity</string>
+    <string name="surface_activity">SurfaceActivity</string>
+    <string name="customize_view_activity">CustomizeViewActivity</string>
+    <string name="viewClick_activity">ViewClickActivity</string>
+    <string name="viewOpt_activity">ViewOptActivity</string>
+    <string name="view_activity">ViewActivity</string>
+    <string name="recycleitemtitle">recycleItemTitle</string>
+</resources>

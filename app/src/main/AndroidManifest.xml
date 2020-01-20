@@ -115,27 +115,27 @@
         </activity>
 
         <!--Surface view-->
-        <activity android:name="com.iffy.mianshi.view.surfaceView.SurfaceActivity">
+        <activity android:name="com.iffy.module_view.surfaceView.SurfaceActivity">
 
         </activity>
 
         <!--ListActivity-->
 
-        <activity android:name="com.iffy.mianshi.view.listView.ListActivity">
+        <activity android:name="com.iffy.module_view.listView.ListActivity">
 
         </activity>
 
         <!--RecyclerActivity-->
-        <activity android:name="com.iffy.mianshi.view.recyclerView.RecyclerActivity">
+        <activity android:name="com.iffy.module_view.recyclerView.RecyclerActivity">
 
         </activity>
-        <activity android:name="com.iffy.mianshi.view.recyclerView.animation.RecyclerAnimationActivity">
+        <activity android:name="com.iffy.module_view.recyclerView.animation.RecyclerAnimationActivity">
 
         </activity>
 
 
         <!--RecyclerInRecyclerActivity-->
-        <activity android:name="com.iffy.mianshi.view.recyclerView.RecyclerInRecyclerActivity">
+        <activity android:name="com.iffy.module_view.recyclerView.RecyclerInRecyclerActivity">
 
         </activity>
 
@@ -165,7 +165,7 @@
 
 
         <!--View机制-->
-        <activity android:name="com.iffy.mianshi.view.viewRefresh.ViewActivity">
+        <activity android:name="com.iffy.module_view.viewRefresh.ViewActivity">
 
         </activity>
 
@@ -242,10 +242,10 @@
 
 
         <!--View优化-->
-        <activity android:name="com.iffy.mianshi.view.viewOptimiz.ViewOptActivity" />
+        <activity android:name="com.iffy.module_view.viewOptimiz.ViewOptActivity" />
 
         <!--自定义View-->
-        <activity android:name="com.iffy.mianshi.view.viewCustomize.CustomizeViewActivity">
+        <activity android:name="com.iffy.module_view.viewCustomize.CustomizeViewActivity">
 
         </activity>
 
@@ -255,7 +255,7 @@
         </activity>
 
 
-        <activity android:name="com.iffy.mianshi.view.viewEvent.ViewClickActivity">
+        <activity android:name="com.iffy.module_view.viewEvent.ViewClickActivity">
 
 
         </activity>

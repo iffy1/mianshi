@@ -20,6 +20,10 @@ class HandlerBetweenMainAndSubActivity : AppCompatActivity() {
 
     lateinit var subHandlerA: Handler
     lateinit var subHandlerB: Handler
+    override fun onDestroy() {
+        super.onDestroy()
+      subHandlerA.removeCallbacksAndMessages(null)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +38,6 @@ class HandlerBetweenMainAndSubActivity : AppCompatActivity() {
                 msg.obj = "aaa"
                 //使用主线程mMainHandler发送消息
                 mMainHandler.sendMessage(msg)
-
                 Looper.prepare()
                 subHandlerA = Handler {
                     println("subHandlerA 收到消息 ${it.obj as String}")
