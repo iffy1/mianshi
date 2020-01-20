@@ -6,11 +6,16 @@ if (rootProject.ext.isBuildAnimationApp) {
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 
 android {
     compileSdkVersion rootProject.ext.defaultConfig.compileSdkVersion
     buildToolsVersion rootProject.ext.defaultConfig.buildToolsVersion
+
+    dataBinding {
+        enabled = true
+    }
 
     defaultConfig {
         if (rootProject.ext.isBuildAnimationApp) {
