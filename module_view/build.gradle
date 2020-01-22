@@ -29,6 +29,17 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            if (rootProject.ext.isBuildViewApp) {
+                manifest.srcFile 'src/main/app/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            }
+        }
+
+    }
+
 }
 
 dependencies {

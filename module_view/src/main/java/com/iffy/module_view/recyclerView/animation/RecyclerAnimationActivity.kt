@@ -4,13 +4,18 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.*
+import com.iffy.module_base.BaseActivity
 import com.iffy.module_view.R
 import com.iffy.module_view.recyclerView.RecycleAdapter
 
-class RecyclerAnimationActivity : AppCompatActivity() {
+class RecyclerAnimationActivity : BaseActivity() {
+    override fun getContentId(): Int {
+        return R.layout.activity_recycler_animation
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recycler_animation)
+
 
         val data = ArrayList<String>()
         for (i in 1..200) {

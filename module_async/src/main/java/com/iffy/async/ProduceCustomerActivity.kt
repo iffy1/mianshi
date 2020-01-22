@@ -5,6 +5,7 @@ import android.text.method.ScrollingMovementMethod
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.iffy.module_base.BaseActivity
 
 
 //什么是生产者消费者模式
@@ -12,7 +13,11 @@ import androidx.appcompat.app.AppCompatActivity
 // 生产者和消费者彼此之间不直接通讯，而通过阻塞队列来进行通讯，所以生产者生产完数据之后不用等待消费者处理，
 // 直接扔给阻塞队列，消费者不找生产者要数据，而是直接从阻塞队列里取，
 // 阻塞队列就相当于一个缓冲区，平衡了生产者和消费者的处理能力。
-class ProduceCustomerActivity : AppCompatActivity() {
+class ProduceCustomerActivity : BaseActivity() {
+    override fun getContentId(): Int {
+        return  R.layout.activity_multithread_producer
+    }
+
     //Kotlin故意没有构建语言的并发性。我们认为这应该由libraries来处理。
     //但是你仍然能够使用java.lang.Object的实例作为lock，并且调用相关的方法。
     private val lock = java.lang.Object()
@@ -31,7 +36,7 @@ class ProduceCustomerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_multithread_producer)
+
         btnA = findViewById(R.id.button_multithread_A)
         btnA.setOnClickListener {
             total_produce_count = 0

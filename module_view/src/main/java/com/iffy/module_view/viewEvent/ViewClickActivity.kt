@@ -12,10 +12,15 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.iffy.module_base.BaseActivity
 import com.iffy.module_view.R
 
 
-class ViewClickActivity : AppCompatActivity() {
+class ViewClickActivity : BaseActivity() {
+    override fun getContentId(): Int {
+       return R.layout.activity_view_click
+    }
+
     lateinit var gest: GestureDetector
     lateinit var btna: Button
 
@@ -33,9 +38,10 @@ class ViewClickActivity : AppCompatActivity() {
         println("onPause btna 的宽度 ${btna.width}")
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_view_click)
+        //setContentView(R.layout.activity_view_click)
         btna = findViewById<Button>(R.id.btn_a)
         //我们知道在oncreate中View.getWidth和View.getHeight无法获得一个view的高度和宽度，这是因为View组件 布局要在onResume回调后完成。
         println("onCreate btna 的宽度 ${btna.width}")

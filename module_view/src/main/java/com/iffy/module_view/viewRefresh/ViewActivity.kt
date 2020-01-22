@@ -2,19 +2,27 @@ package com.iffy.module_view.viewRefresh
 
 import android.content.Context
 import android.graphics.Canvas
+import android.os.Build
 import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.iffy.module_base.BaseActivity
 import com.iffy.module_view.R
 
 
-class ViewActivity : AppCompatActivity() {
+class ViewActivity : BaseActivity() {
+    override fun getContentId(): Int {
+       return R.layout.activity_view
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_view)
+        //setContentView(R.layout.activity_view)
         var v = findViewById<MView>(R.id.myview)
         Thread(Runnable {
             for (i in 1..1000) {

@@ -10,10 +10,14 @@ import com.iffy.module_animation.R
 import com.iffy.module_base.BaseActivity
 
 class Bactivity : BaseActivity() {
+    override fun getContentId(): Int {
+       return R.layout.activity_sence_transition_b
+    }
+
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sence_transition_b)
+
         setupWindowAnimations()
     }
 

@@ -1,17 +1,24 @@
 package com.iffy.module_animation.propertyAnimation
 
 import android.animation.ValueAnimator
+import android.os.Build
 import android.os.Bundle
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import com.iffy.module_animation.R
 import com.iffy.module_base.BaseActivity
 
 
 class ValueAnimatorActivity : BaseActivity() {
+    override fun getContentId(): Int {
+        return R.layout.activity_value_anima
+    }
+
     lateinit var tv: TextView
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_value_anima)
+
         tv = findViewById(R.id.tv)
 
         var va = ValueAnimator()

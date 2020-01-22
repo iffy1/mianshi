@@ -1,8 +1,18 @@
 package com.iffy.module_base
 
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
+import com.iffy.module_base.utils.StatusBarUtil
+
+
+
 //Base Activity的作用
 //1、动态获取权限
 //2、多种屏幕适配
@@ -12,8 +22,7 @@ import android.util.Log
 //6、注册，销毁Eventbus
 //7、一键退出所有activity（我认为我的这种方法是最好的）
 
-open class BaseActivity : AppCompatActivity() {
-
+abstract class BaseActivity : AppCompatActivity() {
     val TAG = this::javaClass.name
 
     companion object {
@@ -22,9 +31,29 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate")
+
+        setContentView(R.layout.activity_base_main)
+        val container = findViewById<ViewGroup>(R.id.container)
+        View.inflate(this, getContentId(), container)
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
+
+        //设置状态栏背景颜色 状态栏透明
+        initStatusBar(drawerLayout)
+
+        //设置ToolBar
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    protected fun initStatusBar(drawerLayout:DrawerLayout) {
+        StatusBarUtil.setColorNoTranslucentForDrawerLayout(this,
+            drawerLayout, getColor(R.color.colorTheme)
+        )
     }
 
     override fun onResume() {
@@ -41,6 +70,8 @@ open class BaseActivity : AppCompatActivity() {
         super.onDestroy()
         Log.d(TAG, "onDestroy")
     }
+
+    abstract fun getContentId(): Int
 
 
 }

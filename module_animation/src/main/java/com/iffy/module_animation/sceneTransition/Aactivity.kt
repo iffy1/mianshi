@@ -2,18 +2,24 @@ package com.iffy.module_animation.sceneTransition
 
 import android.app.ActivityOptions
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.transition.Slide
 import android.view.Gravity
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.iffy.module_animation.R
 import com.iffy.module_base.BaseActivity
 
 class Aactivity : BaseActivity() {
+    override fun getContentId(): Int {
+       return  R.layout.activity_sence_transition
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sence_transition)
         setupWindowAnimations()
 
         var btn = findViewById<Button>(R.id.btn_zhuangchang)

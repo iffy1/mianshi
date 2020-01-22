@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:theme="@style/MyThemeRed" android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.iffy.module_animation.propertyAnimation.Interpolator.InterpolatorActivity"/>
-        <activity android:name=".sceneTransition.Aactivity"/>
-        <activity android:name=".sceneTransition.Bactivity"/>
-        <activity android:name=".transition.SimpleTransitionDemoActivity"/>
-        <activity android:name=".propertyAnimation.ValueAnimatorActivity"/>
-        <activity android:name=".propertyAnimation.ObjectAnimatorActivity"/>
+        <activity android:theme="@style/MyThemeRed" android:name=".propertyAnimation.Interpolator.InterpolatorActivity"/>
+        <activity android:theme="@style/MyThemeRed" android:name=".sceneTransition.Aactivity"/>
+        <activity android:theme="@style/MyThemeRed" android:name=".sceneTransition.Bactivity"/>
+        <activity android:theme="@style/MyThemeRed" android:name=".transition.SimpleTransitionDemoActivity"/>
+        <activity android:theme="@style/MyThemeRed" android:name=".propertyAnimation.ValueAnimatorActivity"/>
+        <activity android:theme="@style/MyThemeRed" android:name=".propertyAnimation.ObjectAnimatorActivity"/>
     </application>
 
 </manifest>

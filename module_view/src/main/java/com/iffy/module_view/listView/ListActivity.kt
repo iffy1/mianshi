@@ -1,21 +1,26 @@
 package com.iffy.module_view.listView
 
 import android.database.MatrixCursor
+import android.os.Build
+import android.os.Build.VERSION_CODES.M
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import android.widget.SimpleCursorAdapter
-import androidx.appcompat.app.AppCompatActivity
+import androidx.annotation.RequiresApi
+import com.iffy.module_base.BaseActivity
 import com.iffy.module_view.R
 
 
-class ListActivity : AppCompatActivity() {
+class ListActivity : BaseActivity() {
+    override fun getContentId(): Int {
+       return R.layout.activity_list
+    }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list)
-
 
         /*---------------------ListA SimpleAdapter---------------------*/
         //功能强大的Adapter，用于将XML中控件绑定为列表项的数据源

@@ -2,19 +2,26 @@ package com.iffy.module_view.surfaceView
 
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.BaseAdapter
 import android.widget.ListView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.iffy.module_base.BaseActivity
 import com.iffy.module_view.R
 
 
-class SurfaceActivity : AppCompatActivity() {
+class SurfaceActivity : BaseActivity() {
+    override fun getContentId(): Int {
+        return R.layout.activity_surface
+    }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_surface)
+        //setContentView(R.layout.activity_surface)
 
         //动态生成
 //        this.getWindow()

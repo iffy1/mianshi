@@ -1,5 +1,6 @@
 package com.iffy.module_animation.transition
 
+import android.os.Build
 import android.os.Bundle
 import android.transition.Explode
 import android.transition.Fade
@@ -7,19 +8,25 @@ import android.transition.Slide
 import android.transition.TransitionManager
 import android.view.View
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.iffy.module_animation.R
 import com.iffy.module_base.BaseActivity
 
 class SimpleTransitionDemoActivity : BaseActivity() {
+    override fun getContentId(): Int {
+        return R.layout.activity_simple_transition_activity
+    }
+
     lateinit var a: Button
     lateinit var b: Button
     lateinit var c: Button
     lateinit var d: Button
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_simple_transition_activity)
+
         a = findViewById(R.id.btn_a)
         b = findViewById(R.id.btn_b)
         c = findViewById(R.id.btn_c)

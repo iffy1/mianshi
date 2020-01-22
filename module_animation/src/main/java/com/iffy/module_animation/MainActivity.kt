@@ -1,24 +1,24 @@
 package com.iffy.module_animation
 
-import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import com.iffy.module_animation.databinding.ActivityMainBinding
 import com.iffy.module_animation.model.AnimationTypeModel
 import com.iffy.module_animation.presenter.ClickEventPresenter
-import com.iffy.module_animation.propertyAnimation.Interpolator.InterpolatorActivity
-import com.iffy.module_animation.propertyAnimation.ObjectAnimatorActivity
-import com.iffy.module_animation.propertyAnimation.ValueAnimatorActivity
-import com.iffy.module_animation.sceneTransition.Aactivity
-import com.iffy.module_animation.transition.SimpleTransitionDemoActivity
 import com.iffy.module_base.BaseActivity
 
 
 class MainActivity : BaseActivity() {
+    override fun getContentId(): Int {
+        return R.layout.activity_main
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_base_main)
 
         //数据绑定
         val animationType = AnimationTypeModel(

@@ -8,6 +8,8 @@ import android.os.Message
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.iffy.async.Coroutine.CoroutineMainScopeActivity
+import com.iffy.module_base.BaseActivity
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -21,18 +23,21 @@ import java.lang.ref.WeakReference
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.ObservableOnSubscribe
-import java.util.*
 import kotlin.collections.ArrayList
 
 
 //异步方法 AsyncTask
 //Anko async
 //协程 Coroutine 20191011
-//mainHandler Thread 20191011
+//uiHandler Thread 20191011
 //CallBack 20191011
 //RxJava
 
-class AsyncActivity : AppCompatActivity(), MyCallBack {
+class AsyncActivity : BaseActivity(), MyCallBack {
+    override fun getContentId(): Int {
+        return R.layout.activity_async
+    }
+
     //callback回调
     override fun workdone(result: String) {
         System.out.println("Callback 如果在worker中的子线程调用了callback,那么回调也在子线程中${Thread.currentThread().getName()}")
@@ -49,7 +54,7 @@ class AsyncActivity : AppCompatActivity(), MyCallBack {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_async)
+
 
         //RxJava分解处理
         //RxJava遵循哪个线程产生就在哪个线程消费的原则,如果不分配线程，所有工作都在主线程执行
@@ -165,7 +170,7 @@ class AsyncActivity : AppCompatActivity(), MyCallBack {
         }
 
 
-        //mainHandler Thread
+        //uiHandler Thread
         val handler = Handler {
             btnHandler.text = "${it.arg1}"
             true

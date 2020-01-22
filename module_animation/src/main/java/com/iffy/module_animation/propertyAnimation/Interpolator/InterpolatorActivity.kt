@@ -2,15 +2,22 @@ package com.iffy.module_animation.propertyAnimation.Interpolator
 
 import android.animation.ObjectAnimator
 import android.graphics.Point
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import com.iffy.module_animation.R
 import com.iffy.module_base.BaseActivity
 
 class InterpolatorActivity : BaseActivity() {
+    override fun getContentId(): Int {
+        return R.layout.activity_chazhiqi
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chazhiqi)
+
         var btn = findViewById<Button>(R.id.btn_chazhiqi)
         btn.setOnClickListener {
             var display = this.windowManager.defaultDisplay

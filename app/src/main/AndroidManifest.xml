@@ -263,23 +263,23 @@
         <activity android:name="com.iffy.async.AsyncActivity">
 
         </activity>
-        <activity android:name="com.iffy.async.CoroutineMainScopeActivity">
+        <activity android:name="com.iffy.async.Coroutine.CoroutineMainScopeActivity">
 
         </activity>
-        <activity android:name="com.iffy.async.RxjavaActivity">
-
-        </activity>
-
-        <activity android:name="com.iffy.async.HandlerActivity">
+        <activity android:name="com.iffy.async.rxjava.RxjavaActivity">
 
         </activity>
 
-        <activity android:name="com.iffy.async.HandlerThreadActivity">
+        <activity android:name="com.iffy.async.handler.HandlerActivity">
+
+        </activity>
+
+        <activity android:name="com.iffy.async.handlerThread.HandlerThreadActivity">
 
         </activity>
 
 
-        <activity android:name="com.iffy.async.HandlerBetweenMainAndSubActivity">
+        <activity android:name="com.iffy.async.handler.HandlerBetweenMainAndSubActivity">
 
         </activity>
 
@@ -294,7 +294,7 @@
 
         </activity>
 
-        <activity android:name="com.iffy.async.MultithreadingActivity">
+        <activity android:name="com.iffy.async.synchronize.SynchronizedActivity">
 
         </activity>
 
