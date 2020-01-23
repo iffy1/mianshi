@@ -91,6 +91,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".broadcast.MyLocalBroadCastReceiver" >
+            <intent-filter>
+                <action android:name="com.iffy.mianshi.ReceiverLocal" />
+            </intent-filter>
+
+<!--            <intent-filter>
+                <action android:name="com.iffy.mianshi.ReceiverContext" />
+            </intent-filter>-->
+        </receiver>
+
         <activity android:name=".alertpopupdialog.PopupDialog">
 
         </activity>

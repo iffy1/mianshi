@@ -26,6 +26,11 @@ class BroadcastActivity : AppCompatActivity() {
         localIntentfilter.addAction("woqulocal")
         LocalBroadcastManager.getInstance(this).registerReceiver(MyLocalreceiver(),localIntentfilter)
         LocalBroadcastManager.getInstance(this).sendBroadcast(Intent("woqulocal"))
+
+        //看看静态注册的Receiver能不能收到
+        LocalBroadcastManager.getInstance(this).sendBroadcast(Intent("com.iffy.mianshi.ReceiverLocal"))
+        sendBroadcast(Intent("com.iffy.mianshi.ReceiverLocal"))
+
         // this.unregisterReceiver(receiver)
     }
 

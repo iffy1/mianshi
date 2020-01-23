@@ -15,7 +15,7 @@ class ValueAnimatorActivity : BaseActivity() {
     }
 
     lateinit var tv: TextView
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
