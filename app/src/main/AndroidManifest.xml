@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        package="com.iffy.mianshi">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.iffy.mianshi">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -13,25 +13,25 @@
 
     <!--MessageIPCService声明权限，只有Use这个权限的app才能绑定我-->
     <permission
-            android:name="com.iffy.mianshi.multiProcess.permission.REMOTE_SERVICE_PERMISSION"
-            android:protectionLevel="normal" />
+        android:name="com.iffy.mianshi.multiProcess.permission.REMOTE_SERVICE_PERMISSION"
+        android:protectionLevel="normal" />
 
     <!--限制PROVIDER的写入权限， 也可以添加读取权限-->
     <permission
-            android:name="com.iffy.permission.WRITE_CONTENT_PROVIDER"
-            android:protectionLevel="normal" />
+        android:name="com.iffy.permission.WRITE_CONTENT_PROVIDER"
+        android:protectionLevel="normal" />
 
 
     <application
-            android:name=".application.MyApplication"
-            android:allowBackup="false"
-            tools:replace="android:allowBackup"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme"
-            tools:ignore="GoogleAppIndexingWarning">
+        android:name=".application.MyApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:allowBackup">
 
         <activity android:name=".activityFragmentComunication.MainActivity">
 
@@ -50,10 +50,10 @@
         我们可以采用单独的进程。微信当前也会把它们放在单独的tools进程中
         开启多进程的方法很简单，只需要给四大组件指定android:process标签。-->
         <service
-                android:name=".multiProcess.MessageIPCService"
-                android:enabled="true"
-                android:exported="true"
-                android:process=":remote" />
+            android:name=".multiProcess.MessageIPCService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote" />
 
         <activity android:name=".multiProcess.IPCActivity">
 
@@ -69,10 +69,10 @@
         <!--authoritie必须和URI一致 而且不能和其他provider重复
         Provider可以提供读权限，写权限，或者权限，-->
         <provider
-                android:name="com.iffy.mianshi.storage.provider.IffyContentProvider"
-                android:authorities="com.iffy.mianshi.storage.provider.PersonContentProvider"
-                android:exported="true"
-                android:writePermission="com.iffy.permission.WRITE_CONTENT_PROVIDER" />
+            android:name="com.iffy.mianshi.storage.provider.IffyContentProvider"
+            android:authorities="com.iffy.mianshi.storage.provider.PersonContentProvider"
+            android:exported="true"
+            android:writePermission="com.iffy.permission.WRITE_CONTENT_PROVIDER" />
 
         <activity android:name="com.iffy.mianshi.storage.provider.TestProviderActivity">
 
@@ -86,58 +86,21 @@
 
         </activity>
         <activity android:name=".broadcast.BroadcastActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".alertpopupdialog.PopupDialog">
 
         </activity>
-        <!--动画-->
-        <activity android:name=".animator.ValueAnimatorActivity">
 
-        </activity>
 
-        <activity android:name=".animator.PropertyAnimatorActivity">
-
-        </activity>
-        <activity android:name=".animator.transition.SimpleTransitionDemoActivity">
-
-        </activity>
-
-        <activity android:name=".animator.sceneTransition.Aactivity">
-
-        </activity>
-        <activity android:name=".animator.sceneTransition.Bactivity">
-
-        </activity>
         <!--布局-->
         <activity android:name=".constraintLayout.MyConstraintLayout">
 
         </activity>
 
-        <!--Surface view-->
-        <activity android:name="com.iffy.module_view.surfaceView.SurfaceActivity">
-
-        </activity>
-
-        <!--ListActivity-->
-
-        <activity android:name="com.iffy.module_view.listView.ListActivity">
-
-        </activity>
-
-        <!--RecyclerActivity-->
-        <activity android:name="com.iffy.module_view.recyclerView.RecyclerActivity">
-
-        </activity>
-        <activity android:name="com.iffy.module_view.recyclerView.animation.RecyclerAnimationActivity">
-
-        </activity>
-
-
-        <!--RecyclerInRecyclerActivity-->
-        <activity android:name="com.iffy.module_view.recyclerView.RecyclerInRecyclerActivity">
-
-        </activity>
 
         <!--序列化-->
         <activity android:name=".parcelableSerializabel.ActivityA">
@@ -148,10 +111,6 @@
 
         </activity>
 
-        <!--差值器-->
-        <activity android:name=".animator.Interpolator.ActivityInterpolator">
-
-        </activity>
 
         <!--存储-->
         <activity android:name=".storage.StoreActivity">
@@ -162,12 +121,6 @@
 
         </activity>
 
-
-
-        <!--View机制-->
-        <activity android:name="com.iffy.module_view.viewRefresh.ViewActivity">
-
-        </activity>
 
         <!--Network类-->
         <activity android:name=".network.NetWorkActivity">
@@ -183,9 +136,8 @@
         <activity android:name=".rxjava.transformOperation.demo.TransformActivity">
 
         </activity>
-        <activity android:name=".rxjava.merge.demoC.CombineLatestActivity">
 
-        </activity>
+
         <activity android:name=".rxjava.function.demoA.SchedulerActivity">
 
         </activity>
@@ -200,7 +152,6 @@
         </activity>
 
         <activity android:name=".rxjava.filter.demoA.DebounceActivity">
-
 
 
         </activity>
@@ -241,13 +192,7 @@
         </activity>
 
 
-        <!--View优化-->
-        <activity android:name="com.iffy.module_view.viewOptimiz.ViewOptActivity" />
 
-        <!--自定义View-->
-        <activity android:name="com.iffy.module_view.viewCustomize.CustomizeViewActivity">
-
-        </activity>
 
         <activity android:name=".firebase.MyFireBase">
 
@@ -255,52 +200,17 @@
         </activity>
 
 
-        <activity android:name="com.iffy.module_view.viewEvent.ViewClickActivity">
 
 
-        </activity>
-        <!-- Aysnc task-->
-        <activity android:name="com.iffy.async.AsyncActivity">
-
-        </activity>
-        <activity android:name="com.iffy.async.Coroutine.CoroutineMainScopeActivity">
-
-        </activity>
-        <activity android:name="com.iffy.async.rxjava.RxjavaActivity">
-
-        </activity>
-
-        <activity android:name="com.iffy.async.handler.HandlerActivity">
-
-        </activity>
-
-        <activity android:name="com.iffy.async.handlerThread.HandlerThreadActivity">
-
-        </activity>
-
-
-        <activity android:name="com.iffy.async.handler.HandlerBetweenMainAndSubActivity">
-
-        </activity>
 
         <!--popupwindow-->
         <activity android:name="com.iffy.mianshi.popupwindow.PopUpWinActivity" />
 
         <activity android:name=".hashmapSpareArray.HashMapSpareArrayActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
         </activity>
 
-        <activity android:name="com.iffy.async.synchronize.SynchronizedActivity">
-
-        </activity>
-
-        <activity android:name="com.iffy.async.ProduceCustomerActivity">
-
-        </activity>
 
         <activity android:name="com.iffy.mianshi.algorithm.lrucache.activity.MyLruCacheActivity">
 
@@ -329,11 +239,6 @@
         <activity android:name=".imageFrameWork.DisplayMetricsActivity">
 
         </activity>
-
-
-
-
-
 
 
     </application>
