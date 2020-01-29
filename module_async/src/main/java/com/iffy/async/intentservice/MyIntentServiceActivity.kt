@@ -1,11 +1,11 @@
-package com.iffy.mianshi.intentservice
+package com.iffy.async.intentservice
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.iffy.mianshi.R
+import com.iffy.async.R
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -24,6 +24,7 @@ class MyIntentServiceActivity : AppCompatActivity() {
         setContentView(R.layout.activity_intent_service)
         imageViewA = findViewById(R.id.imageView_intentA)
         imageViewB = findViewById(R.id.imageView_intentB)
+        //扫描这个界面所有的带有@subscrib注解的方法并且以eventType为Key保存到map里面
         EventBus.getDefault().register(this)
 
         val btnA = findViewById<Button>(R.id.button_internt_service_A)
@@ -42,7 +43,7 @@ class MyIntentServiceActivity : AppCompatActivity() {
             intent.putExtra(BTN_IDENTIFY, 2)
             intent.putExtra(
                 IMGURL,
-                "https://www.sony.com.cn/content/dam/sonystyle/common/homepage/category/Di/block_a7rm4_1909_600703.jpg"
+                "https://www.sony.com.cn/content/dam/sonystyle/common/homepage/category/pa/block_srs_xb12_2001_600295.jpg"
             )
             startService(intent)
         }
@@ -51,9 +52,12 @@ class MyIntentServiceActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        //取消监听
         EventBus.getDefault().unregister(this)
     }
 
+    //监听回调 接收发布者的消息，这里的注解是在EventBus.getDefault().register(this)时候，通过反射查找这个activity
+    //里面带有@Subscrib注解的所有方法
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onBusmsgAReceive(um: EventBusMsgA) {
         imageViewA.setImageBitmap(um.bitmap)

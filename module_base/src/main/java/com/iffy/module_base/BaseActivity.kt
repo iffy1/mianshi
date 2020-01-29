@@ -1,16 +1,18 @@
 package com.iffy.module_base
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.iffy.module_base.utils.StatusBarUtil
-
 
 
 //Base Activity的作用
@@ -47,11 +49,40 @@ abstract class BaseActivity : AppCompatActivity() {
         //设置ToolBar
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
+        //申请权限
+        val perms = arrayOf(
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
+        //怎么知道NeverAskAgain，
+        // 只是不弹权限框，但是会回调OnRequestPermissionsResult()
+        requestPermissions(perms, 110)
+
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        var i = 0
+        permissions.forEach {
+            when (grantResults[i]) {
+                PackageManager.PERMISSION_GRANTED -> println("$it is 赋予了权限")
+                PackageManager.PERMISSION_DENIED -> {
+                    println("$it is 没有权限")
+                    Toast.makeText(BaseActivity@ this, "没有存储权限不能工作", Toast.LENGTH_SHORT).show()
+                }
+            }
+            i++
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    protected fun initStatusBar(drawerLayout:DrawerLayout) {
-        StatusBarUtil.setColorNoTranslucentForDrawerLayout(this,
+    protected fun initStatusBar(drawerLayout: DrawerLayout) {
+        StatusBarUtil.setColorNoTranslucentForDrawerLayout(
+            this,
             drawerLayout, getColor(R.color.colorTheme)
         )
     }

@@ -45,7 +45,7 @@
 
         <service android:name=".bindService.Beband" />
         <service android:name=".messenger.MessengerService" />
-        <service android:name=".intentservice.MyIntentService" />
+
         <!--对于webview，图库等，由于存在内存系统泄露或者占用内存过多的问题，
         我们可以采用单独的进程。微信当前也会把它们放在单独的tools进程中
         开启多进程的方法很简单，只需要给四大组件指定android:process标签。-->
@@ -78,7 +78,7 @@
 
         </activity>
 
-        <activity android:name=".intentservice.MyIntentServiceActivity">
+        <activity android:name="com.iffy.async.intentservice.MyIntentServiceActivity">
 
         </activity>
 

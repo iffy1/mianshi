@@ -1,4 +1,4 @@
-package com.iffy.mianshi.intentservice
+package com.iffy.async.intentservice
 
 import android.graphics.Bitmap
 

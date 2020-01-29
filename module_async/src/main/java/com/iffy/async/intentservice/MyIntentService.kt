@@ -1,4 +1,4 @@
-package com.iffy.mianshi.intentservice
+package com.iffy.async.intentservice
 
 import android.app.IntentService
 import android.content.Intent
@@ -30,21 +30,21 @@ class MyIntentService(name: String) : IntentService(name) {
     //子線程里面運行
     override fun onHandleIntent(intent: Intent?) {
         println("MyIntentService  onHandleIntent Thread:${Thread.currentThread().getName()}")
-        var btnIden = intent?.getIntExtra(MyIntentServiceActivity.BTN_IDENTIFY, 0)
-        var address = intent?.getStringExtra(MyIntentServiceActivity.IMGURL)
-        var connect = URL(address).openConnection() as HttpURLConnection
+        val btnIden = intent?.getIntExtra(MyIntentServiceActivity.BTN_IDENTIFY, 0)
+        val address = intent?.getStringExtra(MyIntentServiceActivity.IMGURL)
+        val connect = URL(address).openConnection() as HttpURLConnection
         //连接类型
         connect.requestMethod = "GET"
         connect.connect()
         //连接成功
         if (connect.responseCode == HttpURLConnection.HTTP_OK) {
             //转化为bitmap
-            var bitmap = BitmapFactory.decodeStream(connect.inputStream)
+            val bitmap = BitmapFactory.decodeStream(connect.inputStream)
             println(bitmap.allocationByteCount / 1024)
             //andriond建议用自己应用的空间/storage/emulated/0/Android/data/com.iffy.mianshi/files/mianshi.jpg
-            var file = File(getExternalFilesDir(null), "mianshi.jpg")
+            val file = File(getExternalFilesDir(null), "mianshi.jpg")
             //创建FileOutputStream流以写入数据到File对象所代表的文件
-            var fos = FileOutputStream(file)
+            val fos = FileOutputStream(file)
             //保存bitmap到文件用到的是图片压缩方法
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
             //一般主要用在IO中，即清空缓冲区数据，就是说你用读写流的时候，其实数据是先被读到了内存中，然后用数据写到文件中，
