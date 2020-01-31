@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Coroutine.CoroutineMainScopeActivity"/>
+        <activity android:name=".coroutine.CoroutineMainScopeActivity"/>
         <activity android:name=".handler.HandlerActivity"/>
         <activity android:name=".handler.HandlerBetweenMainAndSubActivity"/>
         <activity android:name=".handlerThread.HandlerThreadActivity" />

@@ -1,4 +1,4 @@
-package com.iffy.async.Coroutine
+package com.iffy.async.coroutine
 
 import android.animation.ObjectAnimator
 import android.os.Build
@@ -11,10 +11,10 @@ import kotlinx.coroutines.*
 
 class CoroutineMainScopeActivity : BaseActivity(), CoroutineScope by MainScope() {
     override fun getContentId(): Int {
-      return R.layout.activity_async_main_scope
+      return R.layout.activity_coroutine
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val btn = findViewById<Button>(R.id.btn_coroutines_co_main_scope)

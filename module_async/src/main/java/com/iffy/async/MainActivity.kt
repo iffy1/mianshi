@@ -1,18 +1,18 @@
 package com.iffy.async
 
-import android.Manifest
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.RequiresApi
 
-import com.iffy.async.Coroutine.CoroutineMainScopeActivity
+import com.iffy.async.coroutine.CoroutineMainScopeActivity
 import com.iffy.async.handler.HandlerActivity
 import com.iffy.async.handler.HandlerBetweenMainAndSubActivity
 import com.iffy.async.handlerThread.HandlerThreadActivity
 import com.iffy.async.handlerThread.HandlerThreadBActivity
 import com.iffy.async.intentservice.MyIntentServiceActivity
+import com.iffy.async.reenterlock.ReentrantlockActivity
 import com.iffy.async.rxjava.RxjavaActivity
 import com.iffy.async.synchronize.SynchronizedActivity
 import com.iffy.module_base.BaseActivity
@@ -86,6 +86,12 @@ class MainActivity : BaseActivity() {
     fun goToIntentService(v: View) {
         val intent = Intent()
         intent.setClass(this, MyIntentServiceActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun goToReentrantlockActivity(v:View){
+        val intent = Intent()
+        intent.setClass(this, ReentrantlockActivity::class.java)
         startActivity(intent)
     }
 

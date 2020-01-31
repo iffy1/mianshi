@@ -1,14 +1,11 @@
 package com.iffy.async
 
 import android.content.Intent
-import android.os.AsyncTask
-import android.os.Bundle
-import android.os.Handler
-import android.os.Message
+import android.os.*
 import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.iffy.async.Coroutine.CoroutineMainScopeActivity
+import androidx.annotation.RequiresApi
+import com.iffy.async.coroutine.CoroutineMainScopeActivity
 import com.iffy.module_base.BaseActivity
 import io.reactivex.Observable
 import io.reactivex.Observer
@@ -52,6 +49,7 @@ class AsyncActivity : BaseActivity(), MyCallBack {
     lateinit var btnCallBack: Button
     lateinit var btnRx: Button
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

@@ -37,4 +37,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //navigation view
     implementation 'com.android.support:design:29.1.1'
+
+    //leackcanary Content Provider 在 Application 创建之前被自动加载，因此无需用户手动在 onCrate() 中进行初始化
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.1'
 }
