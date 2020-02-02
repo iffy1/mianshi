@@ -9,7 +9,7 @@ import com.iffy.module_animation.model.AnimationTypeModel
 import com.iffy.module_animation.presenter.ClickEventPresenter
 import com.iffy.module_base.BaseActivity
 
-
+//这里使用的是MVP+dataBinding
 class MainActivity : BaseActivity() {
     override fun getContentId(): Int {
         return R.layout.activity_main
@@ -23,8 +23,8 @@ class MainActivity : BaseActivity() {
         //数据绑定
         val animationType = AnimationTypeModel(
             getString(R.string.content) + "真的吗"
-            ,getString(R.string.objectAnimator)
-            ,getString(R.string.valueAnimator)
+            , getString(R.string.objectAnimator)
+            , getString(R.string.valueAnimator)
             , getString(R.string.valueAnimatorPolator)
             , getString(R.string.viewAnimation)
             , getString(R.string.sceneTransition)
@@ -43,7 +43,7 @@ class MainActivity : BaseActivity() {
         activityMainBinding.content = animationType
 
         //绑定监听事件
-        activityMainBinding.clickEvent=ClickEventPresenter()
+        activityMainBinding.clickEvent = ClickEventPresenter()
 
 
         //数据绑定

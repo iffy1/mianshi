@@ -35,6 +35,11 @@ class ThreadPoolExecutor {
             }
         }
 
+        val task = Runnable {  }
+        val future = a.submit(task)//submit有返回值
+        future.get()//阻塞
+        a.execute(task)//没有返回值
+
         //特点：只有核心线程数，并且没有超时机制，因此核心线程即使闲置时，也不会被回收，因此能更快的响应外界的请求.
         newFixedThreadPool(1)
 

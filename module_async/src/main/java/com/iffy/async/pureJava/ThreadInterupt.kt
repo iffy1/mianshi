@@ -1,4 +1,4 @@
-package com.iffy.mianshi.thread
+package com.iffy.async.pureJava
 
 //如果线程内使用sleep的函数使线程挂起，这时又调用了Interrupt()函数 就会导致异常抛出（java.lang.InterruptedException: sleep interrupted）
 //
