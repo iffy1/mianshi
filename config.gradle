@@ -2,6 +2,7 @@ ext {
     isBuildAnimationApp = true
     isBuildViewApp = true
     isBuildAsyncApp = true
+    isBuildMVVMApp = true
 
     defaultConfig = [
             compileSdkVersion: 29,

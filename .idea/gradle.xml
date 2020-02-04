@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/module_animation" />
             <option value="$PROJECT_DIR$/module_async" />
             <option value="$PROJECT_DIR$/module_base" />
+            <option value="$PROJECT_DIR$/module_mvvm" />
             <option value="$PROJECT_DIR$/module_view" />
           </set>
         </option>
