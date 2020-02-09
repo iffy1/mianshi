@@ -25,7 +25,7 @@ import com.iffy.module_base.utils.StatusBarUtil
 //7、一键退出所有activity（我认为我的这种方法是最好的）
 
 abstract class BaseActivity : AppCompatActivity() {
-    val TAG = this::javaClass.name
+    val TAG = this.javaClass.simpleName
 
     companion object {
         fun getName(): String {

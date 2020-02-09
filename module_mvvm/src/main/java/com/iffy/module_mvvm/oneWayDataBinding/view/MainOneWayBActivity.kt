@@ -27,7 +27,7 @@ class MainOneWayBActivity : BaseActivity() {
         val defaultText = TextViewOneWayContentVM(text)
 
         //将activity和 data绑定 Activity显示时会自动显示"初始值"
-        activityMainBinding.textview = defaultText
+        activityMainBinding.textviewVM = defaultText
 
         val editText = findViewById<EditText>(R.id.editText)
         editText.addTextChangedListener {

@@ -1,6 +1,7 @@
 package com.iffy.module_mvvm.twoWayDataBinding.viewModel
 
 import androidx.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
 
 /**
  * Created on 2/2/2020.
@@ -12,6 +13,7 @@ import androidx.databinding.ObservableField
 //解决方法
 //用ObservableField
 
-class TextViewTwoWayContent(var text: ObservableField<String>) {
+class TextViewTwoWayContent_Observable(var text: ObservableField<String>) {
 
 }
+

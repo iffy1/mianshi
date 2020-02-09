@@ -4,7 +4,6 @@ package com.iffy.module_mvvm.oneWayDataBinding.view
 import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.iffy.module_base.BaseActivity
 import com.iffy.module_mvvm.R
 import com.iffy.module_mvvm.oneWayDataBinding.viewModel.TextViewOneWayContentVM
@@ -23,14 +22,19 @@ class MainOneWayActivity : BaseActivity() {
         val activityMainBinding: ActivityOneWayMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_one_way_main)
 
-        //初始化data bean
+        //初始化view model
         val text = "初始值"
-        val defaultText = TextViewOneWayContentVM(text)
-        activityMainBinding.textview = defaultText
+        val defaultTextVM = TextViewOneWayContentVM(text)
+        activityMainBinding.let {
+            it.textviewVM = defaultTextVM
+            //LiveData到activity使得Livedata可以感知这个activity的生命周期
+            it.lifecycleOwner = this
+        }
 
         val editText = findViewById<EditText>(R.id.editText)
         editText.addTextChangedListener {
             println("text changed ${it.toString()}")
+            defaultTextVM.text = it.toString()
         }
 
 

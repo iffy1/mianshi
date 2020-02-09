@@ -21,6 +21,6 @@ public class User extends BaseObservable {
 
     public void setName(String name) {
         this.name = name;
-        notifyPropertyChanged(BR.textview);
+        notifyPropertyChanged(BR.textviewMutable);
     }
 }

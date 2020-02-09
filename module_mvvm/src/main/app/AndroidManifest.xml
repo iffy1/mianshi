@@ -10,14 +10,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:theme="@style/MyThemeRed" android:name="com.iffy.module_mvvm.oneWayDataBinding.view.MainOneWayActivity">
+        <activity android:theme="@style/MyThemeRed" android:name="com.iffy.module_mvvm.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:theme="@style/MyThemeRed" android:name="com.iffy.module_mvvm.oneWayDataBinding.view.MainOneWayActivity">
+
+        </activity>
         <activity android:theme="@style/MyThemeRed" android:name="com.iffy.module_mvvm.oneWayDataBinding.view.MainOneWayBActivity"/>
+        <activity android:theme="@style/MyThemeRed" android:name="com.iffy.module_mvvm.twoWayDataBinding.view.MainTwoWayActivity"/>
+        <activity android:theme="@style/MyThemeRed" android:name=".mvvm.ui.MVVMActivity"/>
     </application>
 
 </manifest>

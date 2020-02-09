@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="textview"
+            name="textviewVM"
             type="com.iffy.module_mvvm.oneWayDataBinding.viewModel.TextViewOneWayContentVM" />
 
     </data>
@@ -20,7 +20,7 @@
             android:layout_width="409dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="@{textview.text}"
+            android:text="@{textviewVM.text}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
