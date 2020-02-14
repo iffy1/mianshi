@@ -31,6 +31,7 @@ class FragmentA : Fragment() {
         )
         //绑定生命周期
         //fragmentBinding.lifecycleOwner = this
+        
 
         //传入activity不然不能共享数据
         vm = ViewModelProviders.of(activity!!).get(FragmentViewModel::class.java)

@@ -1,7 +1,9 @@
 package com.iffy.module_mvvm.mvvm.ui
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -16,6 +18,7 @@ import com.google.android.material.tabs.TabLayout
 import com.iffy.module_mvvm.R
 import com.iffy.module_mvvm.mvvm.adapter.MFragmentPagerAdapter
 import com.iffy.module_mvvm.mvvm.viewModel.FragmentViewModel
+import kotlinx.android.synthetic.main.activity_mvvm.*
 import kotlinx.android.synthetic.main.activity_mvvm.view.*
 
 class MVVMActivity : FragmentActivity() {
@@ -30,8 +33,10 @@ class MVVMActivity : FragmentActivity() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         //绑定 省去findViewById,但是没有进行xml绑定
         val binding = DataBindingUtil.setContentView<ViewDataBinding>(this, R.layout.activity_mvvm)
         //绑定生命周期
@@ -52,6 +57,9 @@ class MVVMActivity : FragmentActivity() {
         vp.adapter = adapter
         //关联tablayout和view pager
         tab.setupWithViewPager(vp)
+
+        //kotlin-android-extensions 直接调用layout id,不需要findViewById
+        conslayout.setBackgroundColor(resources.getColor(R.color.color_page_bg,null))
 
     }
 

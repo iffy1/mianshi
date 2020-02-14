@@ -1,4 +1,4 @@
-include ':app', ':module_async', ':module_mvvm'
+include ':app', ':module_async', ':module_mvvm', ':module_butterknife'
 // ':remoteservice',
 include ':module_animation', ':module_base', ':module_view'
 //,':vlayoutexamples', ':providervisitor', ':incremental', ':androidmvp', ':androidmvp_google'
