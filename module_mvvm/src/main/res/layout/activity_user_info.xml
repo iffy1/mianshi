@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="userInfo"
+            type="com.iffy.module_mvvm.mvvmdemo.bean.UserInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/head_view"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/user_name_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名："
+            android:textSize="30sp"
+
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/head_view"></TextView>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userInfo.userName}"
+            android:textSize="26sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/user_name_head"
+            app:layout_constraintStart_toEndOf="@+id/user_name_head"></TextView>
+
+        <TextView
+            android:id="@+id/age_head"
+            android:layout_width="90dp"
+            android:layout_height="41dp"
+            android:text="年龄："
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/user_name_head"></TextView>
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userInfo.userAge}"
+            android:textSize="26sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/age_head"
+            app:layout_constraintStart_toEndOf="@+id/age_head"></TextView>
+
+        <TextView
+            android:id="@+id/ocupation_head"
+            android:layout_width="90dp"
+            android:layout_height="41dp"
+            android:text="职业："
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/age_head"></TextView>
+
+        <TextView
+            android:id="@+id/ocupation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userInfo.ocupation}"
+            android:textSize="26sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/ocupation_head"
+            app:layout_constraintStart_toEndOf="@+id/ocupation_head"></TextView>
+
+        <TextView
+            android:id="@+id/hobby_head"
+            android:layout_width="90dp"
+            android:layout_height="41dp"
+            android:text="爱好："
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/ocupation_head"></TextView>
+
+        <TextView
+            android:id="@+id/hobby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userInfo.hobby}"
+            android:textSize="26sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/hobby_head"
+            app:layout_constraintStart_toEndOf="@+id/hobby_head"></TextView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="79dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
