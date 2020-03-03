@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--自定义View(MyView)的属性-->
+
+    <!--自定義view的屬性 文字內容-->
+    <declare-styleable name="ColorChangeTextView">
+        <attr name="wenzi" format="string"/>
+        <attr name="daxiao" format="float"/>
+        <attr name="yanse" format="color"/>
+    </declare-styleable>
+
+    <!--自定义View(MyDispatchView)的属性-->
     <declare-styleable name="MyView">
         <attr name="my_text_color" format="color"/>
         <attr name="my_text_size" format="dimension"/>

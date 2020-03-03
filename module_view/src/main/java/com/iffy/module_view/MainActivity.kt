@@ -6,6 +6,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.RequiresApi
 import com.iffy.module_base.BaseActivity
+import com.iffy.module_view.customize.CostomizeFlowGropViewActivity
+import com.iffy.module_view.customize.CostomizeTextViewActivity
+import com.iffy.module_view.customize.XiangXueMainActivity
+import com.iffy.module_view.dispatch.basic.DispatchActivity
+import com.iffy.module_view.dispatch.viewPagerConflict.ViewPagerConflictActivity
 import com.iffy.module_view.listView.ListActivity
 import com.iffy.module_view.recyclerView.RecyclerActivity
 import com.iffy.module_view.recyclerView.RecyclerInRecyclerActivity
@@ -21,7 +26,7 @@ class MainActivity : BaseActivity() {
         return R.layout.activity_main
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -80,5 +85,34 @@ class MainActivity : BaseActivity() {
         startActivity(i)
     }
 
+    fun goToCostomizeTextViewActivity(v: View) {
+        val i = Intent()
+        i.setClass(this, CostomizeTextViewActivity::class.java)
+        startActivity(i)
+    }
+
+    fun goToCostomizeFlowGropViewActivity(v: View) {
+        val i = Intent()
+        i.setClass(this, CostomizeFlowGropViewActivity::class.java)
+        startActivity(i)
+    }
+
+    fun goToCostomizeXiangXueFlowGropViewActivity(v: View) {
+        val i = Intent()
+        i.setClass(this, XiangXueMainActivity::class.java)
+        startActivity(i)
+    }
+
+    fun goToDispatchActivity(v: View) {
+        val i = Intent()
+        i.setClass(this, DispatchActivity::class.java)
+        startActivity(i)
+    }
+
+    fun goToViewPagerConflictActivity(v: View) {
+        val i = Intent()
+        i.setClass(this, ViewPagerConflictActivity::class.java)
+        startActivity(i)
+    }
 
 }

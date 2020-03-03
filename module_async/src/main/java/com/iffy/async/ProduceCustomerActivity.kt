@@ -1,9 +1,11 @@
 package com.iffy.async
 
+import android.os.Build
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.iffy.module_base.BaseActivity
 
@@ -34,6 +36,7 @@ class ProduceCustomerActivity : BaseActivity() {
     var total_produce_count = 0
     var total_consume_count =0
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

@@ -8,11 +8,9 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.*
 import android.util.SparseArray
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.util.forEach
 import com.iffy.mianshi.R
-import leakcanary.AppWatcher
 import java.lang.ref.WeakReference
 
 
@@ -110,7 +108,6 @@ class OomActivity : AppCompatActivity() {
     //MainActivity存在内存泄漏，原因就是非静态内部类LeakThread持有外部类MainActivity的引用，LeakThread中做了耗时操作，导致MainActivity无法被释放。
     override fun onDestroy() {
         super.onDestroy()
-        AppWatcher.objectWatcher.watch(this)
     }
 
 }

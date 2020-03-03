@@ -12,7 +12,7 @@
             android:id="@+id/tab"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            app:tabTextColor="@color/colorTheme"
+            app:tabTextColor="@color/cardview_dark_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -2,6 +2,7 @@ package com.iffy.module_mvvm.mvvm.ui
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.view.get
@@ -22,6 +23,9 @@ import kotlinx.android.synthetic.main.activity_mvvm.*
 import kotlinx.android.synthetic.main.activity_mvvm.view.*
 
 class MVVMActivity : FragmentActivity() {
+    companion object{
+        val TAG = "MVVMActivity"
+    }
     lateinit var tab: TabLayout
     lateinit var vp: ViewPager
     private val fragmentData: ArrayList<Fragment> by lazy {
@@ -65,11 +69,14 @@ class MVVMActivity : FragmentActivity() {
 
 
     fun initFragments() {
+        Log.e(TAG,"initFragments")
         //添加title
         fragmentTitle.add("FragmentA")
         fragmentTitle.add("FragmentB")
+        fragmentTitle.add("FragmentC")
         //添加fragment
         fragmentData.add(FragmentA())
         fragmentData.add(FragmentB())
+        fragmentData.add(FragmentC())
     }
 }

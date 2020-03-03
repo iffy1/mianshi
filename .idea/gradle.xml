@@ -8,13 +8,18 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/androidmvp" />
+            <option value="$PROJECT_DIR$/androidmvp_google" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/incremental" />
             <option value="$PROJECT_DIR$/module_animation" />
             <option value="$PROJECT_DIR$/module_async" />
             <option value="$PROJECT_DIR$/module_base" />
             <option value="$PROJECT_DIR$/module_butterknife" />
             <option value="$PROJECT_DIR$/module_mvvm" />
             <option value="$PROJECT_DIR$/module_view" />
+            <option value="$PROJECT_DIR$/providervisitor" />
+            <option value="$PROJECT_DIR$/vlayoutexamples" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

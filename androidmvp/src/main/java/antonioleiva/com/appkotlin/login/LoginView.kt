@@ -1,7 +1,7 @@
 package antonioleiva.com.appkotlin.login
 
 //用于连接View和presenter
-interface LoginViewListener {
+interface LoginView {
     fun showProgress()
     fun hideProgress()
     fun setUsernameError()

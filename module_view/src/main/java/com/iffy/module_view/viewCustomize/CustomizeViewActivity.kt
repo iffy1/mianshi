@@ -46,7 +46,7 @@ class CustomizeViewActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         println("onResume")
-        //var view = MyView(this)
+        //var view = MyDispatchView(this)
 
     }
 }

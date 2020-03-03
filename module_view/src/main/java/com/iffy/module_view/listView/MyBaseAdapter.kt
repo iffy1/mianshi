@@ -1,12 +1,12 @@
 package com.iffy.module_view.listView
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.iffy.module_view.R
-
 
 class MyBaseAdapter(context: Context, data: Array<String>) : BaseAdapter() {
     var mData: Array<String> = data
@@ -17,7 +17,9 @@ class MyBaseAdapter(context: Context, data: Array<String>) : BaseAdapter() {
         //保存item view中的部件e.g. textview imageview免去 findview
         var ttv: ViewHolder
         if (view == null) {
-            view = View.inflate(mContext, R.layout.list_item_base_item, null)
+            view = LayoutInflater.from(mContext).inflate(R.layout.list_item_base_item, p2, false)
+            //这样使用 item.xml的高度会失效
+            //view = View.inflate(mContext,R.layout.list_item_base_item,null)
             var tv = view!!.findViewById<TextView>(R.id.baseAdapterItemTitle)
             ttv = ViewHolder()
             ttv.titleTV = tv

@@ -11,4 +11,9 @@
     <string name="viewOpt_activity">ViewOptActivity</string>
     <string name="view_activity">ViewActivity</string>
     <string name="recycleitemtitle">recycleItemTitle</string>
+    <string name="zidingyi_activity">自定义TextView</string>
+    <string name="zidingyigroup_activity">自定义ViewGroup</string>
+    <string name="zidingyixiangxuegroup_activity">自定义享学ViewGroup</string>
+    <string name="shixianfenfa_activity">事件分发</string>
+    <string name="huadongchongtu_activity">滑动冲突</string>
 </resources>

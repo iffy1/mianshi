@@ -11,6 +11,7 @@ class Bluetooth :AppCompatActivity(){
         super.onCreate(savedInstanceState)
         var btService = getSystemService(Context.BLUETOOTH_SERVICE)
         btService as BluetoothManager
+        btService.adapter.enable()
 
 
 

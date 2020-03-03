@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorTheme"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/guanggao"
+        android:src="@drawable/titlebar_friends"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/guanggao_dizhi"
+        android:layout_width="match_parent"
+        android:text="廣告位"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>

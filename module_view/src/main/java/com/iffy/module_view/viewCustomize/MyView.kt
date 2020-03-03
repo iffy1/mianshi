@@ -54,7 +54,7 @@ class MyView : View {
 
     //在onMeasure方法中根据测量模式设置View默认的宽高。
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        println("MyView onMeasure widthMeasureSpec: $widthMeasureSpec")
+        println("MyDispatchView onMeasure widthMeasureSpec: $widthMeasureSpec")
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         initPaint()
     }

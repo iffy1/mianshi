@@ -60,9 +60,13 @@
         </activity>
 
         <activity android:name=".oom.OomActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".oom.LeakTestActivity">
+
 
         </activity>
 
@@ -78,18 +82,12 @@
 
         </activity>
 
-        <activity android:name="com.iffy.async.intentservice.MyIntentServiceActivity">
-
-        </activity>
 
         <activity android:name=".messenger.MessengerActivity">
 
         </activity>
         <activity android:name=".broadcast.BroadcastActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <receiver android:name=".broadcast.MyLocalBroadCastReceiver" >
             <intent-filter>

@@ -99,7 +99,7 @@ class ViewClickActivity : BaseActivity() {
             }
         })
         viewgroup.setOnTouchListener { v, event ->
-            println("MyView [ViewGroup] onTocuh $event")
+            println("MyDispatchView [ViewGroup] onTocuh $event")
             false
         }
 
@@ -134,12 +134,12 @@ class ViewClickActivity : BaseActivity() {
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        println("Activity [Activity] onTouchEvent $event")
+        println("CostomizeTextViewActivity [CostomizeTextViewActivity] onTouchEvent $event")
         Toast.makeText(this, "ViewClickActivity clicked", Toast.LENGTH_LONG).show()
         return gest.onTouchEvent(event)
     }
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        println("Activity [Activity] dispatchTouchEvent $ev")
+        println("CostomizeTextViewActivity [CostomizeTextViewActivity] dispatchTouchEvent $ev")
         return super.dispatchTouchEvent(ev)
     }
 
@@ -159,12 +159,12 @@ class ViewClickActivity : BaseActivity() {
         constructor(context: Context?) : this(context, null)
 
         override fun onTouchEvent(event: MotionEvent?): Boolean {
-            println("MyView [ViewGroup] onTouchEvent $event")
+            println("MyDispatchView [ViewGroup] onTouchEvent $event")
             return false
         }
 
         override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-            println("MyView [ViewGroup] dispatchTouchEvent $ev")
+            println("MyDispatchView [ViewGroup] dispatchTouchEvent $ev")
             return super.dispatchTouchEvent(ev)
         }
 

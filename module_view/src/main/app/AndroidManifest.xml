@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iffy.module_view">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,23 +11,55 @@
         android:supportsRtl="true">
         <activity
             android:name=".MainActivity"
-        android:theme="@style/MyThemeRed"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/MyThemeRed">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:theme="@style/MyThemeRed" android:name=".listView.ListActivity"
-            />
-        <activity android:theme="@style/MyThemeRed" android:name=".recyclerView.animation.RecyclerAnimationActivity" />
-        <activity android:theme="@style/MyThemeRed" android:name=".recyclerView.RecyclerActivity" />
-        <activity android:theme="@style/MyThemeRed" android:name=".recyclerView.RecyclerInRecyclerActivity" />
-        <activity android:theme="@style/MyThemeRed" android:name=".surfaceView.SurfaceActivity" />
-        <activity android:theme="@style/MyThemeRed" android:name=".viewCustomize.CustomizeViewActivity" />
-        <activity android:theme="@style/MyThemeRed" android:name=".viewEvent.ViewClickActivity" />
-        <activity android:theme="@style/MyThemeRed" android:name=".viewOptimiz.ViewOptActivity" />
-        <activity android:theme="@style/MyThemeRed"  android:name=".viewRefresh.ViewActivity" />
+        <activity
+            android:name=".listView.ListActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".recyclerView.animation.RecyclerAnimationActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".recyclerView.RecyclerActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".recyclerView.RecyclerInRecyclerActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".surfaceView.SurfaceActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".viewCustomize.CustomizeViewActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".viewEvent.ViewClickActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".viewOptimiz.ViewOptActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".viewRefresh.ViewActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".customize.CostomizeTextViewActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".customize.CostomizeFlowGropViewActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".customize.XiangXueMainActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".dispatch.basic.DispatchActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".dispatch.viewPagerConflict.ViewPagerConflictActivity"
+            android:theme="@style/MyThemeRed" />
 
 
     </application>

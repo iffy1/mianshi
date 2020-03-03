@@ -14,4 +14,10 @@ fun main(){
     hm.forEach { t, u ->
         println("$t ---- $u")
     }
+
+
+    println(6 and 100) //4
+    println(6 and 10) //2
+    println(6 and 5) //4
+    println(6 and 2) //2
 }

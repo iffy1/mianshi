@@ -6,4 +6,6 @@
     <dimen name="circle_progress_default_title_size">20dp</dimen>
     <dimen name="circle_progress_default_value_size">48dp</dimen>
     <dimen name="circle_progress_default_unit_size">12dp</dimen>
+    <dimen name="info_margin">15</dimen>
+    <dimen name="info_margin_15">15</dimen>
 </resources>
