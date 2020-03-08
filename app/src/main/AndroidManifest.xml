@@ -60,10 +60,7 @@
         </activity>
 
         <activity android:name=".oom.OomActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".oom.LeakTestActivity">
 
@@ -186,7 +183,6 @@
 
         <activity android:name=".rxjava.rxAndRetroDemo.qiantaohuidiao.QianTaoHuidiao">
 
-
         </activity>
 
 
@@ -196,19 +192,13 @@
 
         <activity android:name=".rxjava.pictureCacheDemo.PictureCacheActivity">
 
-
         </activity>
-
-
 
 
         <activity android:name=".firebase.MyFireBase">
 
 
         </activity>
-
-
-
 
 
         <!--popupwindow-->
@@ -227,7 +217,10 @@
         <!--热修复-->
 
         <activity android:name=".hotfix.HotfixActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!--IMG框架-->
