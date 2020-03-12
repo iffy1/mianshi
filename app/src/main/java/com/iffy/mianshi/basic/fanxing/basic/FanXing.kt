@@ -1,9 +1,14 @@
 package com.iffy.mianshi.basic.fanxing.basic
 
 //单例
-object  FanXing {
+object FanXing {
     //用在方法中的泛型
-    fun <T>set(a:T){
+    fun <T> set(a: T) {
         System.out.println(a)
     }
+
+    fun <T> get(a: T): Int {
+        return 0
+    }
+
 }

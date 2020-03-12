@@ -1,6 +1,9 @@
 package com.iffy.mianshi.basic.fanxing.bianjie;
 
+import android.os.Build;
+
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class BianJieTest {
     public static void main(String[] args) {
@@ -23,6 +26,7 @@ public class BianJieTest {
 
         ArrayList<Dog> dogList = new ArrayList<>();
         dogList.add(new Dog());
+
 
         addCatSuper(animalList);   addCatExtends(jiafeiList);
         addCatSuper(catList);      addCatExtends(catList);
