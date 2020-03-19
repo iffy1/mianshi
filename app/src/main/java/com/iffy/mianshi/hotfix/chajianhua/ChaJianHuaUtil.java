@@ -2,6 +2,7 @@ package com.iffy.mianshi.hotfix.chajianhua;
 
 import android.content.Context;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 
 import dalvik.system.DexClassLoader;
@@ -33,29 +34,34 @@ public class ChaJianHuaUtil {
             //和对象有关
             Object suzhuPathList = pathListField.get(suzhuLoader);
             //得到了宿主的dexElements
-            Object[] suzhuElements = (Object[])dexElementsFiled.get(suzhuPathList);
+            Object[] suzhuElements = (Object[]) dexElementsFiled.get(suzhuPathList);
 
-            System.out.println("+++++++++++"+suzhuElements);
+            System.out.println("+++++++++++" + suzhuElements);
 
 
             //插件的DexClassLoader
             String apkPath = "";
             DexClassLoader pluginDexClassLoader = new DexClassLoader(apkPath,
-                    mContext.getCacheDir().getAbsolutePath(),null,suzhuLoader);
+                    mContext.getCacheDir().getAbsolutePath(), null, suzhuLoader);
             Object pluginPathList = pathListField.get(pluginDexClassLoader);
             //拿到了plugiin的elements
-            Object[] pluginElements = (Object[])dexElementsFiled.get(pluginPathList);
+            Object[] pluginElements = (Object[]) dexElementsFiled.get(pluginPathList);
 
             //合并宿主和插件的elements
-            Object[] newElemet = new Object[suzhuElements.length+pluginElements.length];
+            Object[] newElemet = new Object[suzhuElements.length + pluginElements.length];
             //拷贝宿主的Elements
-            System.arraycopy(suzhuElements,0,newElemet,0,suzhuElements.length);
+            System.arraycopy(suzhuElements, 0, newElemet, 0, suzhuElements.length);
 
             //拷贝插件的Elements
-            System.arraycopy(pluginElements,0,newElemet,suzhuElements.length,pluginElements.length);
+            System.arraycopy(pluginElements, 0, newElemet, suzhuElements.length, pluginElements.length);
 
-            //新数组赋值给宿主
-            dexElementsFiled.set(suzhuLoader,newElemet);
+            //新数组赋值给宿主 这块有异常
+            // java.lang.IllegalArgumentException:
+            // field dalvik.system.DexPathList.dexElements has type
+            // dalvik.system.DexPathList$Element[], got java.lang.Object[]
+            dexElementsFiled.set(suzhuPathList, newElemet);
+
+            System.out.println("+++++++++++替换结束");
 
 
             //=======================自己写的===================================================

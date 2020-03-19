@@ -71,8 +71,8 @@ class ReentrantlockActivity : BaseActivity(), Handler.Callback {
         progressbarI = findViewById<ProgressBar>(R.id.progressBar9)
         progressbarJ = findViewById<ProgressBar>(R.id.progressBar10)
 
-        val btn = findViewById<Button>(R.id.btn_sychronized)
-        btn.setOnClickListener {
+        val btn_sync = findViewById<Button>(R.id.btn_sychronized)
+        btn_sync.setOnClickListener {
             Thread(TaskRunnable(1), "线程1").start()
             Thread(TaskRunnable(2), "线程2").start()
             Thread(TaskRunnable(3), "线程3").start()
@@ -81,15 +81,15 @@ class ReentrantlockActivity : BaseActivity(), Handler.Callback {
 
         }
 
-        val btnB = findViewById<Button>(R.id.btn_re_entran_fair)
-        btnB.setOnClickListener {
+        val btnFair = findViewById<Button>(R.id.btn_re_entran_fair)
+        btnFair.setOnClickListener {
             //公平锁
             lock = ReentrantLock(true)
             startReentrant()
         }
 
-        val btnC = findViewById<Button>(R.id.btn_re_entran_no_fair)
-        btnC.setOnClickListener {
+        val btn_noFair = findViewById<Button>(R.id.btn_re_entran_no_fair)
+        btn_noFair.setOnClickListener {
             //非公平锁
             lock = ReentrantLock(false)
             startReentrant()
@@ -99,11 +99,11 @@ class ReentrantlockActivity : BaseActivity(), Handler.Callback {
     }
 
     fun startReentrant() {
-        Thread(TaskRunnableB(6), "线程6").start()
-        Thread(TaskRunnableB(7), "线程7").start()
-        Thread(TaskRunnableB(8), "线程8").start()
-        Thread(TaskRunnableB(9), "线程9").start()
-        Thread(TaskRunnableB(10), "线程10").start()
+        Thread(TaskRunnable(6), "线程6").start()
+        Thread(TaskRunnable(7), "线程7").start()
+        Thread(TaskRunnable(8), "线程8").start()
+        Thread(TaskRunnable(9), "线程9").start()
+        Thread(TaskRunnable(10), "线程10").start()
     }
 
     override fun onDestroy() {

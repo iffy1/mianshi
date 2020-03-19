@@ -5,6 +5,10 @@ class MHashMap {
 
 }
 fun main(){
+    var hmtest = HashMap<String,String>(10)
+    println("hmsize: ${hmtest.size}")
+
+
     var hm = HashMap<Int,String>()
     hm.put(1,"一")
     hm.put(100,"一百")

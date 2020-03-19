@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iffy.async">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name="com.iffy.module_base.BaseApp"
         android:allowBackup="true"
@@ -12,25 +14,56 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:theme="@style/MyThemeRed" android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/MyThemeRed">
+
+
+        </activity>
+        <activity
+            android:name=".coroutine.CoroutineMainScopeActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".handler.HandlerActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".handler.HandlerBetweenMainAndSubActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".handlerThread.HandlerThreadActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".handlerThread.HandlerThreadBActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".rxjava.RxjavaActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".synchronize.SynchronizedActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".AsyncActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".ProduceCustomerActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity
+            android:name=".intentservice.MyIntentServiceActivity"
+            android:theme="@style/MyThemeRed" />
+
+        <service android:name="com.iffy.async.intentservice.MyIntentService" />
+
+        <activity
+            android:name=".reenterlock.ReentrantlockActivity"
+            android:theme="@style/MyThemeRed" />
+        <activity android:name=".handlerThread.HandlerThreadTest" />
+        <activity android:name=".handler.HandlerTestActivity"></activity>
+        <activity android:name=".handlerThread.HandlerTestBActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:theme="@style/MyThemeRed" android:name=".coroutine.CoroutineMainScopeActivity"/>
-        <activity android:theme="@style/MyThemeRed" android:name=".handler.HandlerActivity"/>
-        <activity android:theme="@style/MyThemeRed" android:name=".handler.HandlerBetweenMainAndSubActivity"/>
-        <activity android:theme="@style/MyThemeRed" android:name=".handlerThread.HandlerThreadActivity" />
-        <activity android:theme="@style/MyThemeRed" android:name=".handlerThread.HandlerThreadBActivity"/>
-        <activity android:theme="@style/MyThemeRed" android:name=".rxjava.RxjavaActivity"/>
-        <activity android:theme="@style/MyThemeRed" android:name=".synchronize.SynchronizedActivity"/>
-        <activity android:theme="@style/MyThemeRed" android:name=".AsyncActivity"/>
-        <activity android:theme="@style/MyThemeRed" android:name=".ProduceCustomerActivity"/>
-        <activity android:theme="@style/MyThemeRed" android:name=".intentservice.MyIntentServiceActivity"/>
-        <service android:name="com.iffy.async.intentservice.MyIntentService" />
-        <activity android:theme="@style/MyThemeRed" android:name=".reenterlock.ReentrantlockActivity"/>
-
 
 
     </application>

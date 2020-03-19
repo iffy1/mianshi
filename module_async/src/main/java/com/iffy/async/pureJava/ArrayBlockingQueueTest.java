@@ -4,7 +4,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class ArrayBlockingQueueTest {
-
+    //大小有限制 超过限制会阻塞
     private static BlockingQueue<Food> queue = new ArrayBlockingQueue<Food>(10);
 
     class Producer implements Runnable {

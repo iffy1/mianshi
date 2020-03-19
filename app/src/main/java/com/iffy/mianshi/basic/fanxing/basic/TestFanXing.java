@@ -27,6 +27,9 @@ public class TestFanXing {
             System.out.println((Integer)iterator.next());
         }
         System.out.println("End");
+
     }
+
+
 
 }

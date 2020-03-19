@@ -22,7 +22,7 @@ class ThreadPoolExecutor {
 //        unit：超时时间的时间单位.
 //        workQueue：线程池的任务队列， 通过execute方法提交的runnable对象会存储在这个队列中.
 //        threadFactory: 线程工厂, 为线程池提供创建新线程的功能.
-//        handler: 任务无法执行时，回调handler的rejectedExecution方法来通知调用者.
+//        RejectedExecutionHandler: 拒绝策略 任务无法执行时，回调handler的rejectedExecution方法来通知调用者.
 
     fun main() {
         var a = ThreadPoolExecutor(
@@ -35,29 +35,36 @@ class ThreadPoolExecutor {
             }
         }
 
-        val task = Runnable {  }
+        val task = Runnable { }
         val future = a.submit(task)//submit有返回值
         future.get()//阻塞
         a.execute(task)//没有返回值
 
-        //特点：只有核心线程数，并且没有超时机制，因此核心线程即使闲置时，也不会被回收，因此能更快的响应外界的请求.
+        //特点：核心线程数等于最大线程数，并且没有超时机制，因此核心线程即使闲置时，
+        // 也不会被回收，因此能更快的响应外界的请求. 使用无界的LinkedBlockingQueue存储任务
+        //适用于知道任务数量且耗时较长的情况
         newFixedThreadPool(1)
 
         //特点：没有核心线程，非核心线程数量没有限制， 超时为60秒.
-        //适用于执行大量耗时较少的任务，当线程闲置超过60秒时就会被系统回收掉，当所有线程都被系统回收后，它几乎不占用任何系统资源.
+        //适用于执行大量耗时较少的任务，当线程闲置超过60秒时就会被系统回收掉，
+        // 当所有线程都被系统回收后，它几乎不占用任何系统资源.
+        //使用了SynchronousQueue
         newCachedThreadPool()
 
-        //特点：核心线程数是固定的，非核心线程数量没有限制， 没有超时机制. 主要用于执行定时任务和具有固定周期的重复任务.
+        //特点：核心线程数是固定的，非核心线程数量没有限制， 没有超时机制.
+        // 主要用于执行定时任务和具有固定周期的重复任务.
+        //使用了DelayedWorkQueue
         newScheduledThreadPool(1)
 
-        //特点：只有一个核心线程，并没有超时机制. 意义在于统一所有的外界任务到一个线程中， 这使得在这些任务之间不需要处理线程同步的问题.
+
+        //特点：只有一个核心线程，并没有超时机制. 意义在于统一所有的外界任务到一个线程中，
+        // 这使得在这些任务之间不需要处理线程同步的问题.
+        //使用linkedBlockingQueue 顺序执行
         newSingleThreadExecutor()
     }
 
 
 }
-
-
 
 
 

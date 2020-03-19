@@ -1,6 +1,7 @@
 package com.iffy.mianshi.hotfix;
 
 import android.content.Context;
+import android.os.Environment;
 
 import java.io.File;
 import java.lang.reflect.Array;
@@ -20,8 +21,8 @@ public class FixDexUtils {
     private static final String APK_SUFFIX = ".apk";
     private static final String JAR_SUFFIX = ".jar";
     private static final String ZIP_SUFFIX = ".zip";
-    public static final String DEX_DIR = "odex";
-    private static final String OPTIMIZE_DEX_DIR = "optimize_dex";
+    public static final String DEX_DIR = "dex";
+    private static final String OPTIMIZE_DEX_DIR = "fixed_dex";
     private static HashSet<File> loadedDex = new HashSet<>();
 
     static {
@@ -48,7 +49,7 @@ public class FixDexUtils {
             return;
         }
         // 遍历所有的修复dex
-        File fileDir = patchFilesDir != null ? patchFilesDir : new File(context.getFilesDir(), DEX_DIR);// data/data/包名/files/odex（这个可以任意位置）
+        File fileDir = patchFilesDir != null ? patchFilesDir : new File(Environment.getRootDirectory(), DEX_DIR);// data/data/包名/files/odex（这个可以任意位置）
         System.out.println("loadFixedDex选用的地址为" + fileDir.getAbsolutePath());
         //loadFixedDex选用的地址为/data/user/0/com.iffy.mianshi/files/odex
         File[] listFiles = fileDir.listFiles();
@@ -58,7 +59,7 @@ public class FixDexUtils {
                             || file.getName().endsWith(APK_SUFFIX)
                             || file.getName().endsWith(JAR_SUFFIX)
                             || file.getName().endsWith(ZIP_SUFFIX))) {
-                System.out.println("loadFixedDex找到文件，文件名为"+file.getAbsolutePath());
+                System.out.println("loadFixedDex找到文件，文件名为" + file.getAbsolutePath());
                 loadedDex.add(file);// 存入集合
             }
         }
@@ -67,7 +68,7 @@ public class FixDexUtils {
     }
 
     private static void doDexInject(Context appContext, HashSet<File> loadedDex) {
-        String optimizeDir = appContext.getFilesDir().getAbsolutePath() + File.separator + OPTIMIZE_DEX_DIR;// data/data/包名/files/optimize_dex（这个必须是自己程序下的目录）
+        String optimizeDir = Environment.getRootDirectory() + OPTIMIZE_DEX_DIR;// data/data/包名/files/optimize_dex（这个必须是自己程序下的目录）
         File fopt = new File(optimizeDir);
         if (!fopt.exists()) {
             fopt.mkdirs();
