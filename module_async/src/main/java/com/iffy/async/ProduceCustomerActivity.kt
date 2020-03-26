@@ -2,6 +2,7 @@ package com.iffy.async
 
 import android.os.Build
 import android.os.Bundle
+import android.os.Debug
 import android.text.method.ScrollingMovementMethod
 import android.widget.Button
 import android.widget.TextView
@@ -36,9 +37,18 @@ class ProduceCustomerActivity : BaseActivity() {
     var total_produce_count = 0
     var total_consume_count =0
 
+    override fun onDestroy() {
+        super.onDestroy()
+        //生成trace文件 进行分析
+        Debug.stopMethodTracing();
+    }
+
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //生成trace文件 进行分析
+        Debug.startMethodTracing("tracePathIffy")
+        Thread.sleep(6000)//模拟anr
 
         btnA = findViewById(R.id.button_multithread_A)
         btnA.setOnClickListener {

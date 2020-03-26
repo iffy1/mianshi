@@ -188,6 +188,9 @@ class AsyncActivity : BaseActivity(), MyCallBack {
         btnAsync.setOnClickListener {
             var masync = MyAsyncTask(this)
             masync.execute()
+            masync.execute()
+            masync.execute()
+            masync.execute()
         }
 
         //Anko

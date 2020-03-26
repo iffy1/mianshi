@@ -23,6 +23,7 @@
 
 
     <application
+        android:usesCleartextTraffic="true"
         android:name=".application.MyApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -97,10 +98,7 @@
         </receiver>
 
         <activity android:name=".alertpopupdialog.PopupDialog">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
 
@@ -240,6 +238,18 @@
         <activity android:name=".imageFrameWork.DisplayMetricsActivity">
 
         </activity>
+        <activity android:name=".pattern.facade.glide.TestMenMianActivity" >
+
+        </activity>
+        <activity android:name=".pattern.facade.retrofit.RetrofitTestActivity" >
+
+    </activity>
+        <activity android:name=".storage.MySharedPreferenceActivity" >
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
 
 
     </application>

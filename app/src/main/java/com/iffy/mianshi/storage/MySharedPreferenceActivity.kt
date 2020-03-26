@@ -1,8 +1,12 @@
 package com.iffy.mianshi.storage
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Debug
 import androidx.appcompat.app.AppCompatActivity
 import com.iffy.mianshi.R
+import org.jetbrains.anko.commit
+import org.jetbrains.anko.defaultSharedPreferences
 
 //1. SharedPreferences不支持进程同步
 //2.考虑用ContentProvider来实现SharedPreferences的进程同步.
@@ -27,6 +31,11 @@ class MySharedPreferenceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sharedpreference)
-
+        Debug.startMethodTracing("iffy")
+        System.out.println("preferenceEdit")
+        val edit = defaultSharedPreferences.edit()
+        edit.commit()//马上提交
+        edit.apply()//后台提交
+        Debug.stopMethodTracing()
     }
 }
